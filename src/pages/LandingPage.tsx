@@ -77,7 +77,9 @@ export default function LandingPage() {
   const [page, setPage] = useState(1);
   const [loadingSummary, setLoadingSummary] = useState(true);
   const [loadingSchools, setLoadingSchools] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [summaryError, setSummaryError] = useState<string | null>(null);
+  const [schoolError, setSchoolError] = useState<string | null>(null);
+  const [schoolRetryKey, setSchoolRetryKey] = useState(0);
 
   const cities = useMemo(
     () => Array.from(new Set(districts.map((item) => item.city))).sort(),
@@ -86,7 +88,7 @@ export default function LandingPage() {
 
   async function loadSummary() {
     setLoadingSummary(true);
-    setError(null);
+    setSummaryError(null);
     try {
       const [summaryResponse, districtResponse] = await Promise.all([
         fetchCurrentReport(),
@@ -95,7 +97,7 @@ export default function LandingPage() {
       setSummary(summaryResponse);
       setDistricts(districtResponse);
     } catch (error) {
-      setError(error instanceof Error ? error.message : "Summary failed.");
+      setSummaryError(error instanceof Error ? error.message : "Summary failed.");
     } finally {
       setLoadingSummary(false);
     }
@@ -110,7 +112,7 @@ export default function LandingPage() {
 
     async function loadSchools() {
       setLoadingSchools(true);
-      setError(null);
+      setSchoolError(null);
       try {
         const response = await fetchSchools({
           search,
@@ -129,7 +131,9 @@ export default function LandingPage() {
         }
       } catch (error) {
         if (active) {
-          setError(error instanceof Error ? error.message : "School search failed.");
+          setSchoolError(
+            error instanceof Error ? error.message : "School search failed."
+          );
         }
       } finally {
         if (active) {
@@ -143,7 +147,21 @@ export default function LandingPage() {
     return () => {
       active = false;
     };
-  }, [search, rating, district, city, gradeLevel, sortBy, sortDir, page]);
+  }, [
+    search,
+    rating,
+    district,
+    city,
+    gradeLevel,
+    sortBy,
+    sortDir,
+    page,
+    schoolRetryKey
+  ]);
+
+  function retrySchoolSearch() {
+    setSchoolRetryKey((value) => value + 1);
+  }
 
   function resetPagingAnd<T>(setter: (value: T) => void, value: T) {
     setPage(1);
@@ -299,6 +317,12 @@ export default function LandingPage() {
         ) : null}
       </section>
 
+      {summaryError ? (
+        <div className="mt-5">
+          <ErrorState message={summaryError} onRetry={loadSummary} />
+        </div>
+      ) : null}
+
       <section className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {actionTiles.map((item) => (
           <ActionTile key={item.title} {...item} />
@@ -358,7 +382,9 @@ export default function LandingPage() {
             </div>
           </section>
 
-          {error ? <ErrorState message={error} onRetry={loadSummary} /> : null}
+          {schoolError ? (
+            <ErrorState message={schoolError} onRetry={retrySchoolSearch} />
+          ) : null}
           {loadingSchools ? (
             <LoadingState label="Searching schools" />
           ) : schools && schools.data.length > 0 ? (

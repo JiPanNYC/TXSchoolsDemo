@@ -60,6 +60,9 @@ export default function ReleaseCenterPage() {
     setBusyAction(action);
     setError(null);
     setNotice(null);
+    if (action !== "preview") {
+      setPreview(null);
+    }
     try {
       const result = await handler();
 
