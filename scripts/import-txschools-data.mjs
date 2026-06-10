@@ -11,16 +11,16 @@ const sourceFiles = [
 ];
 
 const selectedDistricts = [
-  "Austin ISD",
-  "Houston ISD",
-  "Dallas ISD",
-  "Northside ISD",
-  "Fort Worth ISD",
-  "El Paso ISD",
-  "Plano ISD",
-  "Round Rock ISD",
-  "McAllen ISD",
-  "Corpus Christi ISD"
+  { id: "227901", name: "Austin ISD" },
+  { id: "101912", name: "Houston ISD" },
+  { id: "057905", name: "Dallas ISD" },
+  { id: "015915", name: "Northside ISD" },
+  { id: "220905", name: "Fort Worth ISD" },
+  { id: "071902", name: "El Paso ISD" },
+  { id: "043910", name: "Plano ISD" },
+  { id: "246909", name: "Round Rock ISD" },
+  { id: "108906", name: "McAllen ISD" },
+  { id: "178904", name: "Corpus Christi ISD" }
 ];
 
 const reportPublishedAt = "2026-06-01T16:15:19.000Z";
@@ -39,35 +39,33 @@ const data = Object.fromEntries(
   )
 );
 
-const districtByName = new Map(
-  data.districts.map((district) => [district.district_name, district])
-);
+const districtById = indexById(data.districts);
 const trendById = indexById(data.change_over_time);
 const achievementById = indexById(data.student_achievement_tab);
 const profileById = indexById(data.profile_tab);
 const financeById = indexById(data.finance_school);
 
-const districts = selectedDistricts.map((name) => {
-  const district = districtByName.get(name);
+const districts = selectedDistricts.map(({ id, name }) => {
+  const district = districtById.get(id);
 
-  if (!district) {
-    throw new Error(`Selected district not found in source data: ${name}`);
+  if (!district || district.district_name !== name) {
+    throw new Error(`Selected district not found in source data: ${id} ${name}`);
   }
 
   return {
     id: district.id,
-    name: district.name,
+    name: district.district_name ?? district.name,
     city: titleCase(district.city),
     region: district.region
   };
 });
 
-const schools = selectedDistricts.flatMap((districtName) => {
+const schools = selectedDistricts.flatMap(({ id }) => {
   const candidates = data.schools
     .filter(
       (school) =>
         school.entity_cd === "C" &&
-        school.district_name === districtName &&
+        school.district_id === id &&
         /^[ABCDF]$/.test(school.rating || "") &&
         toNumber(school.score) !== null
     )

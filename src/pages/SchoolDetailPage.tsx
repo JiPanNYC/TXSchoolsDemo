@@ -26,6 +26,7 @@ import {
   numberFormatter,
   percentFormatter
 } from "../lib/format";
+import { isHttpUrl, normalizeHref } from "../lib/links";
 
 export default function SchoolDetailPage() {
   const { id } = useParams();
@@ -265,6 +266,7 @@ function ProfileMetric({
   icon?: LucideIcon;
   href?: string;
 }) {
+  const normalizedHref = href ? normalizeHref(href) : undefined;
   const content = (
     <span className="mt-1 flex items-center gap-2 text-sm font-bold text-ink">
       {Icon ? (
@@ -277,11 +279,11 @@ function ProfileMetric({
   return (
     <div className="rounded-md border border-slate-200 bg-slate-50 px-3 py-3">
       <p className="text-xs font-semibold uppercase text-slate-500">{label}</p>
-      {href ? (
+      {normalizedHref ? (
         <a
-          href={href}
-          target={href.startsWith("http") ? "_blank" : undefined}
-          rel={href.startsWith("http") ? "noreferrer" : undefined}
+          href={normalizedHref}
+          target={isHttpUrl(normalizedHref) ? "_blank" : undefined}
+          rel={isHttpUrl(normalizedHref) ? "noreferrer" : undefined}
           className="text-public-blue-800 hover:text-public-blue-900"
         >
           {content}
