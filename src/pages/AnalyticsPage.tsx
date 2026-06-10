@@ -129,8 +129,8 @@ export default function AnalyticsPage() {
         dataset, historical releases, lagged features, and formal model monitoring.
       </p>
 
-      <div className="mt-6 grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
-        <section className="surface p-5" aria-labelledby="importance-heading">
+      <div className="mt-6 grid min-w-0 gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+        <section className="surface min-w-0 p-5" aria-labelledby="importance-heading">
           <p className="label">Model Explainability</p>
           <h2 id="importance-heading" className="mt-1 text-xl font-bold text-ink">
             Feature Importance
@@ -142,7 +142,7 @@ export default function AnalyticsPage() {
           </div>
         </section>
 
-        <section className="surface p-5" aria-labelledby="correlation-heading">
+        <section className="surface min-w-0 p-5" aria-labelledby="correlation-heading">
           <p className="label">Correlation Analysis</p>
           <h2 id="correlation-heading" className="mt-1 text-xl font-bold text-ink">
             Relationship to Overall Score
@@ -155,7 +155,10 @@ export default function AnalyticsPage() {
         </section>
       </div>
 
-      <section className="mt-6 grid gap-6 xl:grid-cols-3" aria-label="Scatter plots">
+      <section
+        className="mt-6 grid min-w-0 gap-6 xl:grid-cols-3"
+        aria-label="Scatter plots"
+      >
         {analytics.scatter.map((series) => (
           <ScatterPlot
             key={series.id}
@@ -172,8 +175,8 @@ export default function AnalyticsPage() {
         />
       ) : null}
 
-      <div className="mt-6 grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
-        <section className="surface p-5" aria-labelledby="rating-heading">
+      <div className="mt-6 grid min-w-0 gap-6 xl:grid-cols-[0.9fr_1.1fr]">
+        <section className="surface min-w-0 p-5" aria-labelledby="rating-heading">
           <p className="label">Aggregate Distribution</p>
           <h2 id="rating-heading" className="mt-1 text-xl font-bold text-ink">
             Ratings and Grade Levels
@@ -187,13 +190,16 @@ export default function AnalyticsPage() {
           </div>
         </section>
 
-        <section className="surface p-5" aria-labelledby="district-model-heading">
+        <section
+          className="surface min-w-0 p-5"
+          aria-labelledby="district-model-heading"
+        >
           <p className="label">District Aggregation</p>
           <h2 id="district-model-heading" className="mt-1 text-xl font-bold text-ink">
             District Performance Snapshot
           </h2>
-          <div className="mt-5 overflow-hidden rounded-lg border border-slate-200">
-            <table className="min-w-full divide-y divide-slate-200">
+          <div className="mt-5 overflow-x-auto rounded-lg border border-slate-200">
+            <table className="min-w-[640px] divide-y divide-slate-200">
               <thead className="bg-slate-100">
                 <tr>
                   <HeaderCell>District</HeaderCell>
@@ -316,7 +322,7 @@ function ScatterPlot({
   onExpand: () => void;
 }) {
   return (
-    <section className="surface p-5">
+    <section className="surface min-w-0 p-5">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="label">{series.xLabel}</p>
@@ -664,7 +670,7 @@ function DistrictRow({ district }: { district: DistrictAnalytics }) {
 
 function ClusterCard({ cluster }: { cluster: ClusterSummary }) {
   return (
-    <article className="surface p-5">
+    <article className="surface min-w-0 p-5">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="label">{cluster.schoolCount} schools</p>
