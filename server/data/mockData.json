@@ -1,0 +1,2653 @@
+{
+  "sourceMetadata": {
+    "name": "TXschools.gov public aggregate data",
+    "url": "https://txschools.gov/?lng=en",
+    "files": [
+      "https://txschools.gov/data/schools.json",
+      "https://txschools.gov/data/districts.json",
+      "https://txschools.gov/data/change_over_time.json",
+      "https://txschools.gov/data/student_achievement_tab.json",
+      "https://txschools.gov/data/profile_tab.json",
+      "https://txschools.gov/data/finance_school.json"
+    ],
+    "importedAt": "2026-06-10T01:27:24.898Z",
+    "note": "School-level and district-level public aggregate data only; no student-level records."
+  },
+  "districts": [
+    {
+      "id": "227901",
+      "name": "Austin ISD",
+      "city": "Austin",
+      "region": "Region 13: Austin"
+    },
+    {
+      "id": "101912",
+      "name": "Houston ISD",
+      "city": "Houston",
+      "region": "Region 04: Houston"
+    },
+    {
+      "id": "057905",
+      "name": "Dallas ISD",
+      "city": "Dallas",
+      "region": "Region 10: Richardson"
+    },
+    {
+      "id": "244905",
+      "name": "Northside ISD",
+      "city": "Vernon",
+      "region": "Region 09: Wichita Falls"
+    },
+    {
+      "id": "220905",
+      "name": "Fort Worth ISD",
+      "city": "Fort Worth",
+      "region": "Region 11: Fort Worth"
+    },
+    {
+      "id": "071902",
+      "name": "El Paso ISD",
+      "city": "El Paso",
+      "region": "Region 19: El Paso"
+    },
+    {
+      "id": "043910",
+      "name": "Plano ISD",
+      "city": "Plano",
+      "region": "Region 10: Richardson"
+    },
+    {
+      "id": "246909",
+      "name": "Round Rock ISD",
+      "city": "Round Rock",
+      "region": "Region 13: Austin"
+    },
+    {
+      "id": "108906",
+      "name": "McAllen ISD",
+      "city": "McAllen",
+      "region": "Region 01: Edinburg"
+    },
+    {
+      "id": "178904",
+      "name": "Corpus Christi ISD",
+      "city": "Corpus Christi",
+      "region": "Region 02: Corpus Christi"
+    }
+  ],
+  "schools": [
+    {
+      "id": "227901018",
+      "officialCampusId": "227901018",
+      "name": "Lasa HS",
+      "districtId": "227901",
+      "officialDistrictId": "227901",
+      "district": "Austin ISD",
+      "city": "Austin",
+      "county": "Travis",
+      "region": "Region 13: Austin",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 99,
+      "readingScore": 100,
+      "mathScore": 100,
+      "enrollment": 1616,
+      "address": "1012 Arthur Stiles Rd, Austin, TX 78721",
+      "phone": "5124145272",
+      "website": "www.austinisd.org/schools/lasa",
+      "principal": "Ms Stacia Crescenzi",
+      "economicDisadvantaged": 10.6,
+      "attendanceRate": 96.2,
+      "studentTeacherRatio": 18.8,
+      "expendituresPerStudent": 7415,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 99,
+          "readingScore": 100,
+          "mathScore": 100
+        },
+        {
+          "year": 2024,
+          "overallScore": 99,
+          "readingScore": 100,
+          "mathScore": 100
+        },
+        {
+          "year": 2025,
+          "overallScore": 99,
+          "readingScore": 100,
+          "mathScore": 100
+        }
+      ]
+    },
+    {
+      "id": "227901002",
+      "officialCampusId": "227901002",
+      "name": "Austin HS",
+      "districtId": "227901",
+      "officialDistrictId": "227901",
+      "district": "Austin ISD",
+      "city": "Austin",
+      "county": "Travis",
+      "region": "Region 13: Austin",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "B",
+      "overallScore": 89,
+      "readingScore": 84,
+      "mathScore": 77,
+      "enrollment": 2321,
+      "address": "1715 W Cesar Chavez, Austin, TX 78703",
+      "phone": "5124142505",
+      "website": "www.austinisd.org/schools/austin",
+      "principal": "Dr Melvin Bedford",
+      "economicDisadvantaged": 24.1,
+      "attendanceRate": 91.9,
+      "studentTeacherRatio": 18.5,
+      "expendituresPerStudent": 8072,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 88,
+          "readingScore": 83,
+          "mathScore": 76
+        },
+        {
+          "year": 2024,
+          "overallScore": 89,
+          "readingScore": 84,
+          "mathScore": 77
+        },
+        {
+          "year": 2025,
+          "overallScore": 89,
+          "readingScore": 84,
+          "mathScore": 77
+        }
+      ]
+    },
+    {
+      "id": "227901017",
+      "officialCampusId": "227901017",
+      "name": "Akins Early College HS",
+      "districtId": "227901",
+      "officialDistrictId": "227901",
+      "district": "Austin ISD",
+      "city": "Austin",
+      "county": "Travis",
+      "region": "Region 13: Austin",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "C",
+      "overallScore": 79,
+      "readingScore": 60,
+      "mathScore": 60,
+      "enrollment": 2417,
+      "address": "10701 S 1st St, Austin, TX 78748",
+      "phone": "5128419900",
+      "website": "www.austinisd.org/schools/akins",
+      "principal": "Carman Deleon-Wissel",
+      "economicDisadvantaged": 63.8,
+      "attendanceRate": 85.3,
+      "studentTeacherRatio": 15.6,
+      "expendituresPerStudent": 10465,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 77,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2024,
+          "overallScore": 79,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2025,
+          "overallScore": 79,
+          "readingScore": 60,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "227901065",
+      "officialCampusId": "227901065",
+      "name": "Sadler Means YWLA",
+      "districtId": "227901",
+      "officialDistrictId": "227901",
+      "district": "Austin ISD",
+      "city": "Austin",
+      "county": "Travis",
+      "region": "Region 13: Austin",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 6",
+      "highGrade": "Grade 8",
+      "accountabilityRating": "D",
+      "overallScore": 69,
+      "readingScore": 60,
+      "mathScore": 60,
+      "enrollment": 278,
+      "address": "6401 N Hampton Dr, Austin, TX 78723",
+      "phone": "5124143234",
+      "website": "www.austinisd.org/schools/sadlermeansywla",
+      "principal": "Ms De'sean Roby",
+      "economicDisadvantaged": 80.9,
+      "attendanceRate": 89.5,
+      "studentTeacherRatio": 9.7,
+      "expendituresPerStudent": 26091,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 60,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2024,
+          "overallScore": 60,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2025,
+          "overallScore": 69,
+          "readingScore": 60,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "227901053",
+      "officialCampusId": "227901053",
+      "name": "Webb MS",
+      "districtId": "227901",
+      "officialDistrictId": "227901",
+      "district": "Austin ISD",
+      "city": "Austin",
+      "county": "Travis",
+      "region": "Region 13: Austin",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 6",
+      "highGrade": "Grade 8",
+      "accountabilityRating": "F",
+      "overallScore": 60,
+      "readingScore": 60,
+      "mathScore": 60,
+      "enrollment": 502,
+      "address": "601 E St Johns Ave, Austin, TX 78752",
+      "phone": "5124143258",
+      "website": "www.austinisd.org/schools/webb",
+      "principal": "Melissa Oliva",
+      "economicDisadvantaged": 98,
+      "attendanceRate": 90.3,
+      "studentTeacherRatio": 11.6,
+      "expendituresPerStudent": 11520,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 60,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2024,
+          "overallScore": 60,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2025,
+          "overallScore": 60,
+          "readingScore": 60,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "101912025",
+      "officialCampusId": "101912025",
+      "name": "Kinder HS for Performing and Visual Arts",
+      "districtId": "101912",
+      "officialDistrictId": "101912",
+      "district": "Houston ISD",
+      "city": "Houston",
+      "county": "Harris",
+      "region": "Region 04: Houston",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 99,
+      "readingScore": 97,
+      "mathScore": 98,
+      "enrollment": 782,
+      "address": "790 Austin St, Houston, TX 77002",
+      "phone": "7139421960",
+      "website": "www.houstonisd.org",
+      "principal": "Ms Priscilla Rivas",
+      "economicDisadvantaged": 23.1,
+      "attendanceRate": 97.2,
+      "studentTeacherRatio": 16.2,
+      "expendituresPerStudent": 9286,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 97,
+          "readingScore": 95,
+          "mathScore": 96
+        },
+        {
+          "year": 2024,
+          "overallScore": 97,
+          "readingScore": 95,
+          "mathScore": 96
+        },
+        {
+          "year": 2025,
+          "overallScore": 99,
+          "readingScore": 97,
+          "mathScore": 98
+        }
+      ]
+    },
+    {
+      "id": "101912008",
+      "officialCampusId": "101912008",
+      "name": "Lamar HS",
+      "districtId": "101912",
+      "officialDistrictId": "101912",
+      "district": "Houston ISD",
+      "city": "Houston",
+      "county": "Harris",
+      "region": "Region 04: Houston",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "B",
+      "overallScore": 89,
+      "readingScore": 74,
+      "mathScore": 72,
+      "enrollment": 2949,
+      "address": "3325 Westheimer Rd, Houston, TX 77098",
+      "phone": "7135225960",
+      "website": "www.houstonisd.org",
+      "principal": "Ms Rita Graves",
+      "economicDisadvantaged": 47.3,
+      "attendanceRate": 93.9,
+      "studentTeacherRatio": 19.6,
+      "expendituresPerStudent": 8743,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 79,
+          "readingScore": 64,
+          "mathScore": 62
+        },
+        {
+          "year": 2024,
+          "overallScore": 84,
+          "readingScore": 69,
+          "mathScore": 67
+        },
+        {
+          "year": 2025,
+          "overallScore": 89,
+          "readingScore": 74,
+          "mathScore": 72
+        }
+      ]
+    },
+    {
+      "id": "101912044",
+      "officialCampusId": "101912044",
+      "name": "Cullen MS",
+      "districtId": "101912",
+      "officialDistrictId": "101912",
+      "district": "Houston ISD",
+      "city": "Houston",
+      "county": "Harris",
+      "region": "Region 04: Houston",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 6",
+      "highGrade": "Grade 8",
+      "accountabilityRating": "C",
+      "overallScore": 79,
+      "readingScore": 72,
+      "mathScore": 60,
+      "enrollment": 310,
+      "address": "6900 Scott St, Houston, TX 77021",
+      "phone": "7137468180",
+      "website": "www.houstonisd.org",
+      "principal": "Erica Brame",
+      "economicDisadvantaged": 100,
+      "attendanceRate": 85.6,
+      "studentTeacherRatio": 11.1,
+      "expendituresPerStudent": 26531,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 60,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2024,
+          "overallScore": 80,
+          "readingScore": 73,
+          "mathScore": 61
+        },
+        {
+          "year": 2025,
+          "overallScore": 79,
+          "readingScore": 72,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "101912124",
+      "officialCampusId": "101912124",
+      "name": "Burnet Elem",
+      "districtId": "101912",
+      "officialDistrictId": "101912",
+      "district": "Houston ISD",
+      "city": "Houston",
+      "county": "Harris",
+      "region": "Region 04: Houston",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Kindergarten",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "D",
+      "overallScore": 69,
+      "readingScore": 71,
+      "mathScore": 60,
+      "enrollment": 324,
+      "address": "5403 Canal St, Houston, TX 77011",
+      "phone": "7139241780",
+      "website": "www.houstonisd.org",
+      "principal": "Mr Roberto Luna",
+      "economicDisadvantaged": 90.1,
+      "attendanceRate": 95.5,
+      "studentTeacherRatio": 18,
+      "expendituresPerStudent": 13538,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 75,
+          "readingScore": 77,
+          "mathScore": 66
+        },
+        {
+          "year": 2024,
+          "overallScore": 71,
+          "readingScore": 73,
+          "mathScore": 62
+        },
+        {
+          "year": 2025,
+          "overallScore": 69,
+          "readingScore": 71,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "101912026",
+      "officialCampusId": "101912026",
+      "name": "Debakey HS for Health Prof",
+      "districtId": "101912",
+      "officialDistrictId": "101912",
+      "district": "Houston ISD",
+      "city": "Houston",
+      "county": "Harris",
+      "region": "Region 04: Houston",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 99,
+      "readingScore": 100,
+      "mathScore": 99,
+      "enrollment": 929,
+      "address": "2545 Pressler, Houston, TX 77030",
+      "phone": "7137412410",
+      "website": "www.houstonisd.org",
+      "principal": "Mr Jesse Herrera",
+      "economicDisadvantaged": 39.8,
+      "attendanceRate": 97.6,
+      "studentTeacherRatio": 17.4,
+      "expendituresPerStudent": 9312,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 97,
+          "readingScore": 98,
+          "mathScore": 97
+        },
+        {
+          "year": 2024,
+          "overallScore": 98,
+          "readingScore": 99,
+          "mathScore": 98
+        },
+        {
+          "year": 2025,
+          "overallScore": 99,
+          "readingScore": 100,
+          "mathScore": 99
+        }
+      ]
+    },
+    {
+      "id": "057905039",
+      "officialCampusId": "057905039",
+      "name": "School for the Talented and Gifted",
+      "districtId": "057905",
+      "officialDistrictId": "057905",
+      "district": "Dallas ISD",
+      "city": "Dallas",
+      "county": "Dallas",
+      "region": "Region 10: Richardson",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 100,
+      "readingScore": 100,
+      "mathScore": 100,
+      "enrollment": 555,
+      "address": "1201 E Eighth St, Dallas, TX 75203",
+      "phone": "9729255970",
+      "website": "www.dallasisd.org/tagmagnet",
+      "principal": "Arnoldo Zuniga",
+      "economicDisadvantaged": 39.6,
+      "attendanceRate": 97.6,
+      "studentTeacherRatio": 17.6,
+      "expendituresPerStudent": 8402,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 99,
+          "readingScore": 99,
+          "mathScore": 99
+        },
+        {
+          "year": 2024,
+          "overallScore": 99,
+          "readingScore": 99,
+          "mathScore": 99
+        },
+        {
+          "year": 2025,
+          "overallScore": 100,
+          "readingScore": 100,
+          "mathScore": 100
+        }
+      ]
+    },
+    {
+      "id": "057905016",
+      "officialCampusId": "057905016",
+      "name": "South Oak Cliff HS",
+      "districtId": "057905",
+      "officialDistrictId": "057905",
+      "district": "Dallas ISD",
+      "city": "Dallas",
+      "county": "Dallas",
+      "region": "Region 10: Richardson",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "B",
+      "overallScore": 89,
+      "readingScore": 66,
+      "mathScore": 85,
+      "enrollment": 1559,
+      "address": "3601 S Marsalis Ave, Dallas, TX 75216",
+      "phone": "2149327000",
+      "website": "www.dallasisd.org/soc",
+      "principal": "Willie F Johnson",
+      "economicDisadvantaged": 97.9,
+      "attendanceRate": 88.4,
+      "studentTeacherRatio": 15.9,
+      "expendituresPerStudent": 11631,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 65,
+          "readingScore": 60,
+          "mathScore": 61
+        },
+        {
+          "year": 2024,
+          "overallScore": 86,
+          "readingScore": 63,
+          "mathScore": 82
+        },
+        {
+          "year": 2025,
+          "overallScore": 89,
+          "readingScore": 66,
+          "mathScore": 85
+        }
+      ]
+    },
+    {
+      "id": "057905024",
+      "officialCampusId": "057905024",
+      "name": "North Dallas HS",
+      "districtId": "057905",
+      "officialDistrictId": "057905",
+      "district": "Dallas ISD",
+      "city": "Dallas",
+      "county": "Dallas",
+      "region": "Region 10: Richardson",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "C",
+      "overallScore": 79,
+      "readingScore": 60,
+      "mathScore": 60,
+      "enrollment": 1300,
+      "address": "3120 N Haskell Ave, Dallas, TX 75204",
+      "phone": "9729251500",
+      "website": "www.dallasisd.org/northdallas",
+      "principal": "Amir Boroujerdi",
+      "economicDisadvantaged": 91.1,
+      "attendanceRate": 89.9,
+      "studentTeacherRatio": 16,
+      "expendituresPerStudent": 11226,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 74,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2024,
+          "overallScore": 71,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2025,
+          "overallScore": 79,
+          "readingScore": 60,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "057905042",
+      "officialCampusId": "057905042",
+      "name": "Judge Louis A Bedford Jr Law Academy",
+      "districtId": "057905",
+      "officialDistrictId": "057905",
+      "district": "Dallas ISD",
+      "city": "Dallas",
+      "county": "Dallas",
+      "region": "Region 10: Richardson",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 6",
+      "highGrade": "Grade 8",
+      "accountabilityRating": "D",
+      "overallScore": 69,
+      "readingScore": 65,
+      "mathScore": 60,
+      "enrollment": 509,
+      "address": "1303 Reynoldston Ln, Dallas, TX 75232",
+      "phone": "9727946400",
+      "website": "www.dallasisd.org/atwellacademy",
+      "principal": "Chantil C Goree",
+      "economicDisadvantaged": 97.4,
+      "attendanceRate": 91.5,
+      "studentTeacherRatio": 15.2,
+      "expendituresPerStudent": 73586,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 82,
+          "readingScore": 78,
+          "mathScore": 73
+        },
+        {
+          "year": 2024,
+          "overallScore": 81,
+          "readingScore": 77,
+          "mathScore": 72
+        },
+        {
+          "year": 2025,
+          "overallScore": 69,
+          "readingScore": 65,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "057905060",
+      "officialCampusId": "057905060",
+      "name": "Boude Storey MS",
+      "districtId": "057905",
+      "officialDistrictId": "057905",
+      "district": "Dallas ISD",
+      "city": "Dallas",
+      "county": "Dallas",
+      "region": "Region 10: Richardson",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 6",
+      "highGrade": "Grade 8",
+      "accountabilityRating": "F",
+      "overallScore": 60,
+      "readingScore": 60,
+      "mathScore": 60,
+      "enrollment": 379,
+      "address": "3000 Maryland Ave, Dallas, TX 75216",
+      "phone": "9729258700",
+      "website": "www.dallasisd.org/storey",
+      "principal": "Cynetria Mcgriff",
+      "economicDisadvantaged": 97.6,
+      "attendanceRate": 93.6,
+      "studentTeacherRatio": 15.2,
+      "expendituresPerStudent": 14856,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 73,
+          "readingScore": 73,
+          "mathScore": 73
+        },
+        {
+          "year": 2024,
+          "overallScore": 69,
+          "readingScore": 69,
+          "mathScore": 69
+        },
+        {
+          "year": 2025,
+          "overallScore": 60,
+          "readingScore": 60,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "015915006",
+      "officialCampusId": "015915006",
+      "name": "Health Careers HS",
+      "districtId": "015915",
+      "officialDistrictId": "015915",
+      "district": "Northside ISD",
+      "city": "San Antonio",
+      "county": "Bexar",
+      "region": "Region 20: San Antonio",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 96,
+      "readingScore": 100,
+      "mathScore": 98,
+      "enrollment": 904,
+      "address": "4646 Hamilton Wolfe, San Antonio, TX 78229",
+      "phone": "2103975400",
+      "website": "nisd.net",
+      "principal": "Mr Brad Hebert",
+      "economicDisadvantaged": 25.1,
+      "attendanceRate": 98.2,
+      "studentTeacherRatio": 16.4,
+      "expendituresPerStudent": 8988,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 99,
+          "readingScore": 100,
+          "mathScore": 100
+        },
+        {
+          "year": 2024,
+          "overallScore": 97,
+          "readingScore": 100,
+          "mathScore": 99
+        },
+        {
+          "year": 2025,
+          "overallScore": 96,
+          "readingScore": 100,
+          "mathScore": 98
+        }
+      ]
+    },
+    {
+      "id": "015915161",
+      "officialCampusId": "015915161",
+      "name": "Steubing Elem",
+      "districtId": "015915",
+      "officialDistrictId": "015915",
+      "district": "Northside ISD",
+      "city": "San Antonio",
+      "county": "Bexar",
+      "region": "Region 20: San Antonio",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Early Education",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "B",
+      "overallScore": 89,
+      "readingScore": 88,
+      "mathScore": 82,
+      "enrollment": 428,
+      "address": "11655 Braefield, San Antonio, TX 78249",
+      "phone": "2103974350",
+      "website": "nisd.net",
+      "principal": "Ms Latia Bishop",
+      "economicDisadvantaged": 41.1,
+      "attendanceRate": 94.6,
+      "studentTeacherRatio": 11.9,
+      "expendituresPerStudent": 24274,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 87,
+          "readingScore": 86,
+          "mathScore": 80
+        },
+        {
+          "year": 2024,
+          "overallScore": 91,
+          "readingScore": 90,
+          "mathScore": 84
+        },
+        {
+          "year": 2025,
+          "overallScore": 89,
+          "readingScore": 88,
+          "mathScore": 82
+        }
+      ]
+    },
+    {
+      "id": "015915024",
+      "officialCampusId": "015915024",
+      "name": "Brennan HS",
+      "districtId": "015915",
+      "officialDistrictId": "015915",
+      "district": "Northside ISD",
+      "city": "San Antonio",
+      "county": "Bexar",
+      "region": "Region 20: San Antonio",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "C",
+      "overallScore": 79,
+      "readingScore": 84,
+      "mathScore": 76,
+      "enrollment": 2965,
+      "address": "2400 Cottonwood Way, San Antonio, TX 78253",
+      "phone": "2103981250",
+      "website": "nisd.net",
+      "principal": "Dr John Trimble",
+      "economicDisadvantaged": 33.6,
+      "attendanceRate": 94.2,
+      "studentTeacherRatio": 17,
+      "expendituresPerStudent": 8772,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 79,
+          "readingScore": 84,
+          "mathScore": 76
+        },
+        {
+          "year": 2024,
+          "overallScore": 78,
+          "readingScore": 83,
+          "mathScore": 75
+        },
+        {
+          "year": 2025,
+          "overallScore": 79,
+          "readingScore": 84,
+          "mathScore": 76
+        }
+      ]
+    },
+    {
+      "id": "015915003",
+      "officialCampusId": "015915003",
+      "name": "Marshall HS",
+      "districtId": "015915",
+      "officialDistrictId": "015915",
+      "district": "Northside ISD",
+      "city": "San Antonio",
+      "county": "Bexar",
+      "region": "Region 20: San Antonio",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "D",
+      "overallScore": 69,
+      "readingScore": 68,
+      "mathScore": 69,
+      "enrollment": 2634,
+      "address": "8000 Lobo Ln, San Antonio, TX 78240",
+      "phone": "2103977100",
+      "website": "nisd.net",
+      "principal": "Mr Paul Ramirez",
+      "economicDisadvantaged": 65.4,
+      "attendanceRate": 92.7,
+      "studentTeacherRatio": 15.4,
+      "expendituresPerStudent": 10610,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 71,
+          "readingScore": 70,
+          "mathScore": 71
+        },
+        {
+          "year": 2024,
+          "overallScore": 70,
+          "readingScore": 69,
+          "mathScore": 70
+        },
+        {
+          "year": 2025,
+          "overallScore": 69,
+          "readingScore": 68,
+          "mathScore": 69
+        }
+      ]
+    },
+    {
+      "id": "015915041",
+      "officialCampusId": "015915041",
+      "name": "Neff MS",
+      "districtId": "015915",
+      "officialDistrictId": "015915",
+      "district": "Northside ISD",
+      "city": "San Antonio",
+      "county": "Bexar",
+      "region": "Region 20: San Antonio",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 6",
+      "highGrade": "Grade 8",
+      "accountabilityRating": "F",
+      "overallScore": 60,
+      "readingScore": 62,
+      "mathScore": 60,
+      "enrollment": 810,
+      "address": "5227 Evers Rd, San Antonio, TX 78238",
+      "phone": "2103974100",
+      "website": "nisd.net",
+      "principal": "Ms Yvonne Correa",
+      "economicDisadvantaged": 75.3,
+      "attendanceRate": 90.4,
+      "studentTeacherRatio": 12.4,
+      "expendituresPerStudent": 16997,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 62,
+          "readingScore": 64,
+          "mathScore": 62
+        },
+        {
+          "year": 2024,
+          "overallScore": 60,
+          "readingScore": 62,
+          "mathScore": 60
+        },
+        {
+          "year": 2025,
+          "overallScore": 60,
+          "readingScore": 62,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "220905081",
+      "officialCampusId": "220905081",
+      "name": "Young Women's Leadership Academy",
+      "districtId": "220905",
+      "officialDistrictId": "220905",
+      "district": "Fort Worth ISD",
+      "city": "Fort Worth",
+      "county": "Tarrant",
+      "region": "Region 11: Fort Worth",
+      "gradeLevel": "K-8",
+      "lowGrade": "Grade 6",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 96,
+      "readingScore": 96,
+      "mathScore": 87,
+      "enrollment": 402,
+      "address": "401 E 8th St, Fort Worth, TX 76102",
+      "phone": "8178152400",
+      "website": "www.fwisd.org",
+      "principal": "Rediesha Allen",
+      "economicDisadvantaged": 62.4,
+      "attendanceRate": 96.4,
+      "studentTeacherRatio": 11.6,
+      "expendituresPerStudent": 13033,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 95,
+          "readingScore": 95,
+          "mathScore": 86
+        },
+        {
+          "year": 2024,
+          "overallScore": 96,
+          "readingScore": 96,
+          "mathScore": 87
+        },
+        {
+          "year": 2025,
+          "overallScore": 96,
+          "readingScore": 96,
+          "mathScore": 87
+        }
+      ]
+    },
+    {
+      "id": "220905101",
+      "officialCampusId": "220905101",
+      "name": "Alice Carlson Applied Lrn Ctr",
+      "districtId": "220905",
+      "officialDistrictId": "220905",
+      "district": "Fort Worth ISD",
+      "city": "Fort Worth",
+      "county": "Tarrant",
+      "region": "Region 11: Fort Worth",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Kindergarten",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "B",
+      "overallScore": 89,
+      "readingScore": 90,
+      "mathScore": 80,
+      "enrollment": 379,
+      "address": "3320 W Cantey St, Fort Worth, TX 76109",
+      "phone": "8178155700",
+      "website": "www.fwisd.org",
+      "principal": "Ms Elizabeth Kelz",
+      "economicDisadvantaged": 25.9,
+      "attendanceRate": 96.5,
+      "studentTeacherRatio": 16.1,
+      "expendituresPerStudent": 9777,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 79,
+          "readingScore": 80,
+          "mathScore": 70
+        },
+        {
+          "year": 2024,
+          "overallScore": 76,
+          "readingScore": 77,
+          "mathScore": 67
+        },
+        {
+          "year": 2025,
+          "overallScore": 89,
+          "readingScore": 90,
+          "mathScore": 80
+        }
+      ]
+    },
+    {
+      "id": "220905050",
+      "officialCampusId": "220905050",
+      "name": "McLean MS",
+      "districtId": "220905",
+      "officialDistrictId": "220905",
+      "district": "Fort Worth ISD",
+      "city": "Fort Worth",
+      "county": "Tarrant",
+      "region": "Region 11: Fort Worth",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 6",
+      "highGrade": "Grade 8",
+      "accountabilityRating": "C",
+      "overallScore": 79,
+      "readingScore": 78,
+      "mathScore": 71,
+      "enrollment": 756,
+      "address": "3816 Stadium Dr, Fort Worth, TX 76109",
+      "phone": "8178145300",
+      "website": "www.fwisd.org",
+      "principal": "Ms Barbara Ozuna",
+      "economicDisadvantaged": 59.8,
+      "attendanceRate": 94.4,
+      "studentTeacherRatio": 15.9,
+      "expendituresPerStudent": 10493,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 76,
+          "readingScore": 75,
+          "mathScore": 68
+        },
+        {
+          "year": 2024,
+          "overallScore": 75,
+          "readingScore": 74,
+          "mathScore": 67
+        },
+        {
+          "year": 2025,
+          "overallScore": 79,
+          "readingScore": 78,
+          "mathScore": 71
+        }
+      ]
+    },
+    {
+      "id": "220905006",
+      "officialCampusId": "220905006",
+      "name": "Eastern Hills HS",
+      "districtId": "220905",
+      "officialDistrictId": "220905",
+      "district": "Fort Worth ISD",
+      "city": "Fort Worth",
+      "county": "Tarrant",
+      "region": "Region 11: Fort Worth",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "D",
+      "overallScore": 69,
+      "readingScore": 60,
+      "mathScore": 60,
+      "enrollment": 1189,
+      "address": "5701 Shelton St, Fort Worth, TX 76112",
+      "phone": "8178154000",
+      "website": "www.fwisd.org",
+      "principal": "Mr Tremayna Thomas",
+      "economicDisadvantaged": 89.2,
+      "attendanceRate": 89.3,
+      "studentTeacherRatio": 15.4,
+      "expendituresPerStudent": 14130,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 62,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2024,
+          "overallScore": 74,
+          "readingScore": 65,
+          "mathScore": 65
+        },
+        {
+          "year": 2025,
+          "overallScore": 69,
+          "readingScore": 60,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "220905060",
+      "officialCampusId": "220905060",
+      "name": "Wedgwood MS",
+      "districtId": "220905",
+      "officialDistrictId": "220905",
+      "district": "Fort Worth ISD",
+      "city": "Fort Worth",
+      "county": "Tarrant",
+      "region": "Region 11: Fort Worth",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 6",
+      "highGrade": "Grade 8",
+      "accountabilityRating": "F",
+      "overallScore": 60,
+      "readingScore": 62,
+      "mathScore": 60,
+      "enrollment": 701,
+      "address": "3909 Wilkie Way, Fort Worth, TX 76133",
+      "phone": "8178148200",
+      "website": "www.fwisd.org",
+      "principal": "Stanley Johnson",
+      "economicDisadvantaged": 89.3,
+      "attendanceRate": 91.6,
+      "studentTeacherRatio": 13.8,
+      "expendituresPerStudent": 14175,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 60,
+          "readingScore": 62,
+          "mathScore": 60
+        },
+        {
+          "year": 2024,
+          "overallScore": 60,
+          "readingScore": 62,
+          "mathScore": 60
+        },
+        {
+          "year": 2025,
+          "overallScore": 60,
+          "readingScore": 62,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "071902015",
+      "officialCampusId": "071902015",
+      "name": "Transmountain Early College HS",
+      "districtId": "071902",
+      "officialDistrictId": "071902",
+      "district": "El Paso ISD",
+      "city": "El Paso",
+      "county": "El Paso",
+      "region": "Region 19: El Paso",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 98,
+      "readingScore": 98,
+      "mathScore": 99,
+      "enrollment": 354,
+      "address": "9570 Gateway N Blvd Ec, El Paso, TX 79925",
+      "phone": "9158876805",
+      "website": "tmechs.episd.org",
+      "principal": "Ms Barbara Brinkley-Lopez",
+      "economicDisadvantaged": 58.8,
+      "attendanceRate": 95.9,
+      "studentTeacherRatio": 14.2,
+      "expendituresPerStudent": 13197,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 98,
+          "readingScore": 98,
+          "mathScore": 99
+        },
+        {
+          "year": 2024,
+          "overallScore": 97,
+          "readingScore": 97,
+          "mathScore": 98
+        },
+        {
+          "year": 2025,
+          "overallScore": 98,
+          "readingScore": 98,
+          "mathScore": 99
+        }
+      ]
+    },
+    {
+      "id": "071902010",
+      "officialCampusId": "071902010",
+      "name": "Franklin HS",
+      "districtId": "071902",
+      "officialDistrictId": "071902",
+      "district": "El Paso ISD",
+      "city": "El Paso",
+      "county": "El Paso",
+      "region": "Region 19: El Paso",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "B",
+      "overallScore": 89,
+      "readingScore": 81,
+      "mathScore": 81,
+      "enrollment": 2833,
+      "address": "900 N Resler Dr, El Paso, TX 79912",
+      "phone": "9158326600",
+      "website": "franklin.episd.org",
+      "principal": "Ms Amanda Bowser",
+      "economicDisadvantaged": 51.1,
+      "attendanceRate": 88.7,
+      "studentTeacherRatio": 19.1,
+      "expendituresPerStudent": 8824,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 86,
+          "readingScore": 78,
+          "mathScore": 78
+        },
+        {
+          "year": 2024,
+          "overallScore": 88,
+          "readingScore": 80,
+          "mathScore": 80
+        },
+        {
+          "year": 2025,
+          "overallScore": 89,
+          "readingScore": 81,
+          "mathScore": 81
+        }
+      ]
+    },
+    {
+      "id": "071902121",
+      "officialCampusId": "071902121",
+      "name": "Hillside Elem",
+      "districtId": "071902",
+      "officialDistrictId": "071902",
+      "district": "El Paso ISD",
+      "city": "El Paso",
+      "county": "El Paso",
+      "region": "Region 19: El Paso",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Prekindergarten",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "C",
+      "overallScore": 79,
+      "readingScore": 77,
+      "mathScore": 65,
+      "enrollment": 344,
+      "address": "4500 Clifton Ave, El Paso, TX 79903",
+      "phone": "9155872560",
+      "website": "hillside.episd.org",
+      "principal": "Ms Alonzo Barraza",
+      "economicDisadvantaged": 88.1,
+      "attendanceRate": 93,
+      "studentTeacherRatio": 11.2,
+      "expendituresPerStudent": 13271,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 86,
+          "readingScore": 84,
+          "mathScore": 72
+        },
+        {
+          "year": 2024,
+          "overallScore": 79,
+          "readingScore": 77,
+          "mathScore": 65
+        },
+        {
+          "year": 2025,
+          "overallScore": 79,
+          "readingScore": 77,
+          "mathScore": 65
+        }
+      ]
+    },
+    {
+      "id": "071902111",
+      "officialCampusId": "071902111",
+      "name": "Cooley Elem",
+      "districtId": "071902",
+      "officialDistrictId": "071902",
+      "district": "El Paso ISD",
+      "city": "El Paso",
+      "county": "El Paso",
+      "region": "Region 19: El Paso",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Early Education",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "D",
+      "overallScore": 65,
+      "readingScore": 63,
+      "mathScore": 60,
+      "enrollment": 392,
+      "address": "107 N Collingsworth St, El Paso, TX 79905",
+      "phone": "9152368600",
+      "website": "cooley.episd.org",
+      "principal": "Elizabeth Prangner",
+      "economicDisadvantaged": 96.7,
+      "attendanceRate": 92.4,
+      "studentTeacherRatio": 12.6,
+      "expendituresPerStudent": 13082,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 69,
+          "readingScore": 67,
+          "mathScore": 64
+        },
+        {
+          "year": 2024,
+          "overallScore": 60,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2025,
+          "overallScore": 65,
+          "readingScore": 63,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "071902172",
+      "officialCampusId": "071902172",
+      "name": "Charles Q Murphree PK-8",
+      "districtId": "071902",
+      "officialDistrictId": "071902",
+      "district": "El Paso ISD",
+      "city": "El Paso",
+      "county": "El Paso",
+      "region": "Region 19: El Paso",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Early Education",
+      "highGrade": "Grade 8",
+      "accountabilityRating": "F",
+      "overallScore": 60,
+      "readingScore": 60,
+      "mathScore": 60,
+      "enrollment": 845,
+      "address": "499 Cabaret, El Paso, TX 79912",
+      "phone": "9152363925",
+      "website": "episd.org",
+      "principal": "Christine Miles",
+      "economicDisadvantaged": 87,
+      "attendanceRate": 89.3,
+      "studentTeacherRatio": 14.4,
+      "expendituresPerStudent": 10841,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 60,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2024,
+          "overallScore": 60,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2025,
+          "overallScore": 60,
+          "readingScore": 60,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "043910008",
+      "officialCampusId": "043910008",
+      "name": "Academy HS",
+      "districtId": "043910",
+      "officialDistrictId": "043910",
+      "district": "Plano ISD",
+      "city": "Plano",
+      "county": "Collin",
+      "region": "Region 10: Richardson",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 98,
+      "readingScore": 98,
+      "mathScore": 95,
+      "enrollment": 275,
+      "address": "1701 Alma Rd, Plano, TX 75075",
+      "phone": "9729058100",
+      "website": "www.pisd.edu",
+      "principal": "Dr Josh Howard",
+      "economicDisadvantaged": 14.9,
+      "attendanceRate": 94.9,
+      "studentTeacherRatio": 11.6,
+      "expendituresPerStudent": 12291,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 94,
+          "readingScore": 94,
+          "mathScore": 91
+        },
+        {
+          "year": 2024,
+          "overallScore": 97,
+          "readingScore": 97,
+          "mathScore": 94
+        },
+        {
+          "year": 2025,
+          "overallScore": 98,
+          "readingScore": 98,
+          "mathScore": 95
+        }
+      ]
+    },
+    {
+      "id": "043910056",
+      "officialCampusId": "043910056",
+      "name": "Otto MS",
+      "districtId": "043910",
+      "officialDistrictId": "043910",
+      "district": "Plano ISD",
+      "city": "Plano",
+      "county": "Collin",
+      "region": "Region 10: Richardson",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 6",
+      "highGrade": "Grade 8",
+      "accountabilityRating": "B",
+      "overallScore": 89,
+      "readingScore": 85,
+      "mathScore": 80,
+      "enrollment": 935,
+      "address": "504 N Star Rd, Plano, TX 75074",
+      "phone": "4697528510",
+      "website": "www.pisd.edu",
+      "principal": "Ms Amy Robison",
+      "economicDisadvantaged": 39.7,
+      "attendanceRate": 95.5,
+      "studentTeacherRatio": 14.9,
+      "expendituresPerStudent": 8782,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 92,
+          "readingScore": 88,
+          "mathScore": 83
+        },
+        {
+          "year": 2024,
+          "overallScore": 89,
+          "readingScore": 85,
+          "mathScore": 80
+        },
+        {
+          "year": 2025,
+          "overallScore": 89,
+          "readingScore": 85,
+          "mathScore": 80
+        }
+      ]
+    },
+    {
+      "id": "043910106",
+      "officialCampusId": "043910106",
+      "name": "Aldridge Elem",
+      "districtId": "043910",
+      "officialDistrictId": "043910",
+      "district": "Plano ISD",
+      "city": "Richardson",
+      "county": "Collin",
+      "region": "Region 10: Richardson",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Kindergarten",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "C",
+      "overallScore": 79,
+      "readingScore": 82,
+      "mathScore": 73,
+      "enrollment": 458,
+      "address": "720 Pleasant Valley Ln, Richardson, TX 75080",
+      "phone": "4697520000",
+      "website": "www.pisd.edu",
+      "principal": "Ms Karma Cunningham",
+      "economicDisadvantaged": 22.5,
+      "attendanceRate": 95.4,
+      "studentTeacherRatio": 14.7,
+      "expendituresPerStudent": 18711,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 89,
+          "readingScore": 92,
+          "mathScore": 83
+        },
+        {
+          "year": 2024,
+          "overallScore": 83,
+          "readingScore": 86,
+          "mathScore": 77
+        },
+        {
+          "year": 2025,
+          "overallScore": 79,
+          "readingScore": 82,
+          "mathScore": 73
+        }
+      ]
+    },
+    {
+      "id": "043910045",
+      "officialCampusId": "043910045",
+      "name": "Armstrong MS",
+      "districtId": "043910",
+      "officialDistrictId": "043910",
+      "district": "Plano ISD",
+      "city": "Plano",
+      "county": "Collin",
+      "region": "Region 10: Richardson",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 6",
+      "highGrade": "Grade 8",
+      "accountabilityRating": "D",
+      "overallScore": 69,
+      "readingScore": 70,
+      "mathScore": 60,
+      "enrollment": 490,
+      "address": "3805 Timberline Dr, Plano, TX 75074",
+      "phone": "4697524600",
+      "website": "www.pisd.edu",
+      "principal": "Mr John Tedford",
+      "economicDisadvantaged": 82,
+      "attendanceRate": 93.1,
+      "studentTeacherRatio": 10.9,
+      "expendituresPerStudent": 10405,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 69,
+          "readingScore": 70,
+          "mathScore": 60
+        },
+        {
+          "year": 2024,
+          "overallScore": 76,
+          "readingScore": 77,
+          "mathScore": 67
+        },
+        {
+          "year": 2025,
+          "overallScore": 69,
+          "readingScore": 70,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "043910104",
+      "officialCampusId": "043910104",
+      "name": "Sigler Elem",
+      "districtId": "043910",
+      "officialDistrictId": "043910",
+      "district": "Plano ISD",
+      "city": "Plano",
+      "county": "Collin",
+      "region": "Region 10: Richardson",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Prekindergarten",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "F",
+      "overallScore": 60,
+      "readingScore": 60,
+      "mathScore": 60,
+      "enrollment": 473,
+      "address": "1400 Janwood Dr, Plano, TX 75075",
+      "phone": "4697523210",
+      "website": "www.pisd.edu",
+      "principal": "Ms Tara Lane",
+      "economicDisadvantaged": 82.7,
+      "attendanceRate": 93.8,
+      "studentTeacherRatio": 11.7,
+      "expendituresPerStudent": 12714,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 66,
+          "readingScore": 66,
+          "mathScore": 66
+        },
+        {
+          "year": 2024,
+          "overallScore": 62,
+          "readingScore": 62,
+          "mathScore": 62
+        },
+        {
+          "year": 2025,
+          "overallScore": 60,
+          "readingScore": 60,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "246909015",
+      "officialCampusId": "246909015",
+      "name": "RRISD Early College HS",
+      "districtId": "246909",
+      "officialDistrictId": "246909",
+      "district": "Round Rock ISD",
+      "city": "Round Rock",
+      "county": "Williamson",
+      "region": "Region 13: Austin",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 97,
+      "readingScore": 97,
+      "mathScore": 90,
+      "enrollment": 364,
+      "address": "4400 College Park Dr, Round Rock, TX 78665",
+      "phone": "5127041650",
+      "website": "earlycollege.roundrockisd.org/",
+      "principal": "Dr Elizabeth Wilson",
+      "economicDisadvantaged": 24.5,
+      "attendanceRate": 93.2,
+      "studentTeacherRatio": 17.5,
+      "expendituresPerStudent": 11707,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 97,
+          "readingScore": 97,
+          "mathScore": 90
+        },
+        {
+          "year": 2024,
+          "overallScore": 97,
+          "readingScore": 97,
+          "mathScore": 90
+        },
+        {
+          "year": 2025,
+          "overallScore": 97,
+          "readingScore": 97,
+          "mathScore": 90
+        }
+      ]
+    },
+    {
+      "id": "246909108",
+      "officialCampusId": "246909108",
+      "name": "Forest North Elem",
+      "districtId": "246909",
+      "officialDistrictId": "246909",
+      "district": "Round Rock ISD",
+      "city": "Austin",
+      "county": "Williamson",
+      "region": "Region 13: Austin",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Early Education",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "B",
+      "overallScore": 89,
+      "readingScore": 87,
+      "mathScore": 72,
+      "enrollment": 307,
+      "address": "13414 Broadmeade Ave, Austin, TX 78729",
+      "phone": "5124646750",
+      "website": "forestnorth.roundrockisd.org/",
+      "principal": "Amy Jacobs",
+      "economicDisadvantaged": 49.8,
+      "attendanceRate": 93.5,
+      "studentTeacherRatio": 11.6,
+      "expendituresPerStudent": 16736,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 79,
+          "readingScore": 77,
+          "mathScore": 62
+        },
+        {
+          "year": 2024,
+          "overallScore": 90,
+          "readingScore": 88,
+          "mathScore": 73
+        },
+        {
+          "year": 2025,
+          "overallScore": 89,
+          "readingScore": 87,
+          "mathScore": 72
+        }
+      ]
+    },
+    {
+      "id": "246909011",
+      "officialCampusId": "246909011",
+      "name": "Success HS",
+      "districtId": "246909",
+      "officialDistrictId": "246909",
+      "district": "Round Rock ISD",
+      "city": "Round Rock",
+      "county": "Williamson",
+      "region": "Region 13: Austin",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "C",
+      "overallScore": 79,
+      "readingScore": 60,
+      "mathScore": 60,
+      "enrollment": 221,
+      "address": "500 Gattis School Rd, Round Rock, TX 78664",
+      "phone": "5124287196",
+      "website": "success.roundrockisd.org/",
+      "principal": "Blanca Valencia",
+      "economicDisadvantaged": 46.6,
+      "attendanceRate": 72.9,
+      "studentTeacherRatio": 10,
+      "expendituresPerStudent": 14824,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 84,
+          "readingScore": 65,
+          "mathScore": 65
+        },
+        {
+          "year": 2024,
+          "overallScore": 87,
+          "readingScore": 68,
+          "mathScore": 68
+        },
+        {
+          "year": 2025,
+          "overallScore": 79,
+          "readingScore": 60,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "246909136",
+      "officialCampusId": "246909136",
+      "name": "Neysa Callison Elem",
+      "districtId": "246909",
+      "officialDistrictId": "246909",
+      "district": "Round Rock ISD",
+      "city": "Round Rock",
+      "county": "Williamson",
+      "region": "Region 13: Austin",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Prekindergarten",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "D",
+      "overallScore": 69,
+      "readingScore": 70,
+      "mathScore": 64,
+      "enrollment": 630,
+      "address": "1750 Thompson Trl, Round Rock, TX 78664",
+      "phone": "5127040700",
+      "website": "callison.roundrockisd.org/",
+      "principal": "Laura Ihonvbere",
+      "economicDisadvantaged": 67.6,
+      "attendanceRate": 88.3,
+      "studentTeacherRatio": 12.7,
+      "expendituresPerStudent": 11274,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 69,
+          "readingScore": 70,
+          "mathScore": 64
+        },
+        {
+          "year": 2024,
+          "overallScore": 67,
+          "readingScore": 68,
+          "mathScore": 62
+        },
+        {
+          "year": 2025,
+          "overallScore": 69,
+          "readingScore": 70,
+          "mathScore": 64
+        }
+      ]
+    },
+    {
+      "id": "246909109",
+      "officialCampusId": "246909109",
+      "name": "Anderson Mill Elem",
+      "districtId": "246909",
+      "officialDistrictId": "246909",
+      "district": "Round Rock ISD",
+      "city": "Austin",
+      "county": "Williamson",
+      "region": "Region 13: Austin",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Prekindergarten",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "F",
+      "overallScore": 60,
+      "readingScore": 68,
+      "mathScore": 60,
+      "enrollment": 584,
+      "address": "10610 Salt Mill Hollow, Austin, TX 78750",
+      "phone": "5124283700",
+      "website": "andersonmill.roundrockisd.org/",
+      "principal": "Amanda Molina",
+      "economicDisadvantaged": 62,
+      "attendanceRate": 93.6,
+      "studentTeacherRatio": 16.7,
+      "expendituresPerStudent": 10584,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 73,
+          "readingScore": 81,
+          "mathScore": 73
+        },
+        {
+          "year": 2024,
+          "overallScore": 68,
+          "readingScore": 76,
+          "mathScore": 68
+        },
+        {
+          "year": 2025,
+          "overallScore": 60,
+          "readingScore": 68,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "108906011",
+      "officialCampusId": "108906011",
+      "name": "Achieve Early College HS",
+      "districtId": "108906",
+      "officialDistrictId": "108906",
+      "district": "McAllen ISD",
+      "city": "McAllen",
+      "county": "Hidalgo",
+      "region": "Region 01: Edinburg",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 98,
+      "readingScore": 95,
+      "mathScore": 97,
+      "enrollment": 428,
+      "address": "1601 N 27th St, McAllen, TX 78501",
+      "phone": "9569714200",
+      "website": "aechs.mcallenisd.org",
+      "principal": "Mr Miguel Carmona",
+      "economicDisadvantaged": 68.2,
+      "attendanceRate": 96.8,
+      "studentTeacherRatio": 12.9,
+      "expendituresPerStudent": 16814,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 99,
+          "readingScore": 96,
+          "mathScore": 98
+        },
+        {
+          "year": 2024,
+          "overallScore": 98,
+          "readingScore": 95,
+          "mathScore": 97
+        },
+        {
+          "year": 2025,
+          "overallScore": 98,
+          "readingScore": 95,
+          "mathScore": 97
+        }
+      ]
+    },
+    {
+      "id": "108906114",
+      "officialCampusId": "108906114",
+      "name": "Fields Elem",
+      "districtId": "108906",
+      "officialDistrictId": "108906",
+      "district": "McAllen ISD",
+      "city": "McAllen",
+      "county": "Hidalgo",
+      "region": "Region 01: Edinburg",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Early Education",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "B",
+      "overallScore": 89,
+      "readingScore": 82,
+      "mathScore": 77,
+      "enrollment": 443,
+      "address": "500 W Dallas Ave, McAllen, TX 78501",
+      "phone": "9569714344",
+      "website": "fields.mcallenisd.org",
+      "principal": "Mrs Teresa Trdla",
+      "economicDisadvantaged": 89.6,
+      "attendanceRate": 94,
+      "studentTeacherRatio": 12.6,
+      "expendituresPerStudent": 13895,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 67,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2024,
+          "overallScore": 80,
+          "readingScore": 73,
+          "mathScore": 68
+        },
+        {
+          "year": 2025,
+          "overallScore": 89,
+          "readingScore": 82,
+          "mathScore": 77
+        }
+      ]
+    },
+    {
+      "id": "108906112",
+      "officialCampusId": "108906112",
+      "name": "Wilson Elem",
+      "districtId": "108906",
+      "officialDistrictId": "108906",
+      "district": "McAllen ISD",
+      "city": "McAllen",
+      "county": "Hidalgo",
+      "region": "Region 01: Edinburg",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Prekindergarten",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "C",
+      "overallScore": 72,
+      "readingScore": 75,
+      "mathScore": 60,
+      "enrollment": 408,
+      "address": "1200 Hackberry St, McAllen, TX 78501",
+      "phone": "9569714525",
+      "website": "wilson.mcallenisd.org",
+      "principal": "Mrs Rebecca Echazarreta",
+      "economicDisadvantaged": 91.2,
+      "attendanceRate": 94,
+      "studentTeacherRatio": 14.8,
+      "expendituresPerStudent": 15043,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 78,
+          "readingScore": 81,
+          "mathScore": 66
+        },
+        {
+          "year": 2024,
+          "overallScore": 69,
+          "readingScore": 72,
+          "mathScore": 60
+        },
+        {
+          "year": 2025,
+          "overallScore": 72,
+          "readingScore": 75,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "108906007",
+      "officialCampusId": "108906007",
+      "name": "Lamar Academy",
+      "districtId": "108906",
+      "officialDistrictId": "108906",
+      "district": "McAllen ISD",
+      "city": "McAllen",
+      "county": "Hidalgo",
+      "region": "Region 01: Edinburg",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 10",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 97,
+      "readingScore": 60,
+      "mathScore": 60,
+      "enrollment": 47,
+      "address": "1009 N 10th St, McAllen, TX 78501",
+      "phone": "9566323222",
+      "website": "lamar.mcallenisd.org",
+      "principal": "Nora Sanchez",
+      "economicDisadvantaged": 87.2,
+      "attendanceRate": 79,
+      "studentTeacherRatio": 5.9,
+      "expendituresPerStudent": 61592,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 93,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2024,
+          "overallScore": 96,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2025,
+          "overallScore": 97,
+          "readingScore": 60,
+          "mathScore": 60
+        }
+      ]
+    },
+    {
+      "id": "108906006",
+      "officialCampusId": "108906006",
+      "name": "Rowe HS",
+      "districtId": "108906",
+      "officialDistrictId": "108906",
+      "district": "McAllen ISD",
+      "city": "McAllen",
+      "county": "Hidalgo",
+      "region": "Region 01: Edinburg",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 93,
+      "readingScore": 80,
+      "mathScore": 85,
+      "enrollment": 1904,
+      "address": "2101 N Ware Rd, Mc Allen, TX 78501",
+      "phone": "9566325100",
+      "website": "rowe.mcallenisd.org",
+      "principal": "Mr Alfredo Gutierrez",
+      "economicDisadvantaged": 70.2,
+      "attendanceRate": 92.5,
+      "studentTeacherRatio": 12.7,
+      "expendituresPerStudent": 12807,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 94,
+          "readingScore": 81,
+          "mathScore": 86
+        },
+        {
+          "year": 2024,
+          "overallScore": 92,
+          "readingScore": 79,
+          "mathScore": 84
+        },
+        {
+          "year": 2025,
+          "overallScore": 93,
+          "readingScore": 80,
+          "mathScore": 85
+        }
+      ]
+    },
+    {
+      "id": "178904008",
+      "officialCampusId": "178904008",
+      "name": "Collegiate HS",
+      "districtId": "178904",
+      "officialDistrictId": "178904",
+      "district": "Corpus Christi ISD",
+      "city": "Corpus Christi",
+      "county": "Nueces",
+      "region": "Region 02: Corpus Christi",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 97,
+      "readingScore": 96,
+      "mathScore": 93,
+      "enrollment": 390,
+      "address": "101 Baldwin Blvd St Clair Bldg Rm 203, Corpus Christi, TX 78404",
+      "phone": "3616982425",
+      "website": "collegiate.ccisd.us",
+      "principal": "Dr Tracie S Rodriguez",
+      "economicDisadvantaged": 60.5,
+      "attendanceRate": 95.2,
+      "studentTeacherRatio": 21.8,
+      "expendituresPerStudent": 7802,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 95,
+          "readingScore": 94,
+          "mathScore": 91
+        },
+        {
+          "year": 2024,
+          "overallScore": 96,
+          "readingScore": 95,
+          "mathScore": 92
+        },
+        {
+          "year": 2025,
+          "overallScore": 97,
+          "readingScore": 96,
+          "mathScore": 93
+        }
+      ]
+    },
+    {
+      "id": "178904149",
+      "officialCampusId": "178904149",
+      "name": "Mireles Elem",
+      "districtId": "178904",
+      "officialDistrictId": "178904",
+      "district": "Corpus Christi ISD",
+      "city": "Corpus Christi",
+      "county": "Nueces",
+      "region": "Region 02: Corpus Christi",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Prekindergarten",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "B",
+      "overallScore": 89,
+      "readingScore": 86,
+      "mathScore": 80,
+      "enrollment": 621,
+      "address": "7658 Cimarron Blvd, Corpus Christi, TX 78414",
+      "phone": "3618780120",
+      "website": "mireles.ccisd.us",
+      "principal": "Ms Carolyn E Bence",
+      "economicDisadvantaged": 43.2,
+      "attendanceRate": 94.5,
+      "studentTeacherRatio": 15.9,
+      "expendituresPerStudent": 8292,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 88,
+          "readingScore": 85,
+          "mathScore": 79
+        },
+        {
+          "year": 2024,
+          "overallScore": 79,
+          "readingScore": 76,
+          "mathScore": 70
+        },
+        {
+          "year": 2025,
+          "overallScore": 89,
+          "readingScore": 86,
+          "mathScore": 80
+        }
+      ]
+    },
+    {
+      "id": "178904003",
+      "officialCampusId": "178904003",
+      "name": "Roy Miller HS and Metro School of Design",
+      "districtId": "178904",
+      "officialDistrictId": "178904",
+      "district": "Corpus Christi ISD",
+      "city": "Corpus Christi",
+      "county": "Nueces",
+      "region": "Region 02: Corpus Christi",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 7",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "C",
+      "overallScore": 79,
+      "readingScore": 60,
+      "mathScore": 66,
+      "enrollment": 1423,
+      "address": "1 Battlin Buc Blvd, Corpus Christi, TX 78408",
+      "phone": "3618785100",
+      "website": "miller.ccisd.us",
+      "principal": "Dr Aurelio Tamayo",
+      "economicDisadvantaged": 89.2,
+      "attendanceRate": 85.3,
+      "studentTeacherRatio": 16.3,
+      "expendituresPerStudent": 10857,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 84,
+          "readingScore": 65,
+          "mathScore": 71
+        },
+        {
+          "year": 2024,
+          "overallScore": 69,
+          "readingScore": 60,
+          "mathScore": 60
+        },
+        {
+          "year": 2025,
+          "overallScore": 79,
+          "readingScore": 60,
+          "mathScore": 66
+        }
+      ]
+    },
+    {
+      "id": "178904123",
+      "officialCampusId": "178904123",
+      "name": "Cullen Place Elem",
+      "districtId": "178904",
+      "officialDistrictId": "178904",
+      "district": "Corpus Christi ISD",
+      "city": "Corpus Christi",
+      "county": "Nueces",
+      "region": "Region 02: Corpus Christi",
+      "gradeLevel": "Elementary",
+      "lowGrade": "Early Education",
+      "highGrade": "Grade 5",
+      "accountabilityRating": "D",
+      "overallScore": 66,
+      "readingScore": 68,
+      "mathScore": 64,
+      "enrollment": 919,
+      "address": "850 Belmeade Dr, Corpus Christi, TX 78412",
+      "phone": "3618782960",
+      "website": "cullen.ccisd.us",
+      "principal": "Jennifer Brady",
+      "economicDisadvantaged": 81.4,
+      "attendanceRate": 90.6,
+      "studentTeacherRatio": 17.3,
+      "expendituresPerStudent": 17999,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 74,
+          "readingScore": 76,
+          "mathScore": 72
+        },
+        {
+          "year": 2024,
+          "overallScore": 74,
+          "readingScore": 76,
+          "mathScore": 72
+        },
+        {
+          "year": 2025,
+          "overallScore": 66,
+          "readingScore": 68,
+          "mathScore": 64
+        }
+      ]
+    },
+    {
+      "id": "178904014",
+      "officialCampusId": "178904014",
+      "name": "Harold T Branch Academy for Career & Technical Ed",
+      "districtId": "178904",
+      "officialDistrictId": "178904",
+      "district": "Corpus Christi ISD",
+      "city": "Corpus Christi",
+      "county": "Nueces",
+      "region": "Region 02: Corpus Christi",
+      "gradeLevel": "High",
+      "lowGrade": "Grade 9",
+      "highGrade": "Grade 12",
+      "accountabilityRating": "A",
+      "overallScore": 97,
+      "readingScore": 93,
+      "mathScore": 94,
+      "enrollment": 248,
+      "address": "3902 Morgan Ave, Corpus Christi, TX 78405",
+      "phone": "3618784780",
+      "website": "branch.ccisd.us",
+      "principal": "Dr Tracie Rodriguez",
+      "economicDisadvantaged": 62.1,
+      "attendanceRate": 94.4,
+      "studentTeacherRatio": 18.8,
+      "expendituresPerStudent": 9533,
+      "distinctions": null,
+      "dataSource": "TXschools.gov public aggregate data",
+      "lastUpdated": "2026-06-01T16:15:19.000Z",
+      "reportVersion": "2024-25",
+      "trend": [
+        {
+          "year": 2023,
+          "overallScore": 97,
+          "readingScore": 93,
+          "mathScore": 94
+        },
+        {
+          "year": 2024,
+          "overallScore": 95,
+          "readingScore": 91,
+          "mathScore": 92
+        },
+        {
+          "year": 2025,
+          "overallScore": 97,
+          "readingScore": 93,
+          "mathScore": 94
+        }
+      ]
+    }
+  ],
+  "reportVersions": [
+    {
+      "version": "2026-04",
+      "label": "April 2026 Accountability Snapshot",
+      "status": "previous",
+      "publishedAt": "2026-04-30T18:00:00.000Z",
+      "recordCount": 50
+    },
+    {
+      "version": "2026-05",
+      "label": "May 2026 Accountability Snapshot",
+      "status": "production",
+      "publishedAt": "2026-06-01T16:15:19.000Z",
+      "recordCount": 50
+    },
+    {
+      "version": "2026-06",
+      "label": "June 2026 Candidate Release",
+      "status": "candidate",
+      "publishedAt": null,
+      "recordCount": 50
+    }
+  ]
+}
