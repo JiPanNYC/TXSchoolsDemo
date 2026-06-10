@@ -52,7 +52,7 @@ export interface School {
 export interface ReportVersion {
   version: string;
   label: string;
-  status: "production" | "previous" | "candidate";
+  status: "production" | "previous" | "candidate" | "archived";
   publishedAt: string | null;
   recordCount: number;
 }

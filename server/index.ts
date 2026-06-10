@@ -135,16 +135,20 @@ app.post("/api/releases/promote", (_request, response) => {
   }
 
   const oldProduction = releaseState.productionVersion;
+  const promotedVersion = releaseState.candidateVersion;
+  const publishedAt = new Date().toISOString();
   releaseState = {
     ...releaseState,
-    productionVersion: releaseState.candidateVersion,
+    productionVersion: promotedVersion,
     previousVersion: oldProduction,
-    candidateVersion: nextMonthlyVersion(releaseState.candidateVersion),
+    candidateVersion: nextMonthlyVersion(promotedVersion),
     validationStatus: "not_run",
     checks: buildValidationChecks(data.schools),
     lastValidatedAt: null
   };
 
+  ensureReportVersion(promotedVersion);
+  markReportVersionPublished(promotedVersion, publishedAt);
   ensureReportVersion(releaseState.candidateVersion);
   databaseRevision = 0;
   databaseVersion = versionToken(releaseState.productionVersion, databaseRevision);
@@ -325,7 +329,7 @@ function syncReportVersions() {
           ? "previous"
           : version.version === releaseState.candidateVersion
             ? "candidate"
-            : version.status
+            : "archived"
   }));
 
   return reportVersions;
@@ -343,6 +347,19 @@ function ensureReportVersion(version: string) {
     publishedAt: null,
     recordCount: data.schools.length
   });
+}
+
+function markReportVersionPublished(version: string, publishedAt: string) {
+  reportVersions = reportVersions.map((item) =>
+    item.version === version
+      ? {
+          ...item,
+          label: `${formatVersionMonth(version)} Accountability Snapshot`,
+          publishedAt,
+          recordCount: data.schools.length
+        }
+      : item
+  );
 }
 
 function nextMonthlyVersion(version: string) {

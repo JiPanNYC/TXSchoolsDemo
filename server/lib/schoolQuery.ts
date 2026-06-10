@@ -70,7 +70,7 @@ export function applySchoolQuery(
   schools: School[],
   options: SchoolQueryOptions
 ): PaginatedResponse<School> {
-  const page = Math.max(1, options.page ?? 1);
+  const requestedPage = Math.max(1, options.page ?? 1);
   const pageSize = Math.min(50, Math.max(1, options.pageSize ?? 20));
   const search = normalize(options.search);
   const rating = options.rating && options.rating !== "all" ? options.rating : "";
@@ -107,8 +107,9 @@ export function applySchoolQuery(
     return sortDir === "asc" ? result : result * -1;
   });
 
-  const start = (page - 1) * pageSize;
   const totalPages = Math.max(1, Math.ceil(sorted.length / pageSize));
+  const page = Math.min(requestedPage, totalPages);
+  const start = (page - 1) * pageSize;
 
   return {
     data: sorted.slice(start, start + pageSize),

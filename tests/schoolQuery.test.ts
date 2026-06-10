@@ -82,6 +82,19 @@ describe("school query utilities", () => {
     expect(result.data[0].name).toBe("Houston Gateway High");
   });
 
+  it("clamps out-of-range pages to the last available page", () => {
+    const result = applySchoolQuery(schools, {
+      sortBy: "overallScore",
+      sortDir: "desc",
+      page: 99,
+      pageSize: 1
+    });
+
+    expect(result.pagination.page).toBe(3);
+    expect(result.pagination.totalPages).toBe(3);
+    expect(result.data[0].name).toBe("Dallas Central Middle");
+  });
+
   it("normalizes unsafe query values", () => {
     const query = parseSchoolQuery({
       page: "-20",

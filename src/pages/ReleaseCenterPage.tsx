@@ -285,8 +285,10 @@ export default function ReleaseCenterPage() {
                 <div>
                   <p className="font-bold text-ink">{version.label}</p>
                   <p className="text-sm text-slate-600">
-                    {version.recordCount} records - published{" "}
-                    {formatDate(version.publishedAt)}
+                    {version.recordCount} records -{" "}
+                    {version.publishedAt
+                      ? `published ${formatDate(version.publishedAt)}`
+                      : "not yet published"}
                   </p>
                 </div>
                 <span className="font-bold text-public-blue-800">

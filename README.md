@@ -47,6 +47,8 @@ Development URLs:
 - Frontend: `http://localhost:5173`
 - Backend API: `http://localhost:4174`
 - Vite proxies `/api` calls to Express
+- If you change the API port, set `PORT` and `API_PROXY_TARGET` in your shell
+  or local `.env`
 
 Production-style local run:
 
