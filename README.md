@@ -332,6 +332,8 @@ Recommended settings:
 
 - Runtime: Node.js 20+
 - Port: use the platform-provided `PORT`
+- Behind nginx on a single EC2 host, set `HOST=127.0.0.1` so Express is only
+  reachable through the reverse proxy
 - Health check path: `/api/health`
 
 The included `render.yaml` uses these settings for a Render-style web service.

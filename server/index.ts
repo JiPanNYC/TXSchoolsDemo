@@ -27,6 +27,7 @@ interface DistrictSummary extends District {
 
 const app = express();
 const port = Number(process.env.PORT ?? 4174);
+const host = process.env.HOST;
 const cacheTtlSeconds = 15 * 60;
 
 app.use(cors());
@@ -224,9 +225,16 @@ if (existsSync(clientDistPath)) {
   });
 }
 
-app.listen(port, () => {
-  console.log(`TXSchools demo API listening on http://localhost:${port}`);
-});
+const logStartup = () => {
+  const address = host ?? "0.0.0.0";
+  console.log(`TXSchools demo API listening on http://${address}:${port}`);
+};
+
+if (host) {
+  app.listen(port, host, logStartup);
+} else {
+  app.listen(port, logStartup);
+}
 
 function buildReportSummary(): ReportSummary {
   const production = syncReportVersions().find(
