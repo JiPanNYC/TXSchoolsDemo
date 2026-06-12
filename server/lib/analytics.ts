@@ -316,7 +316,9 @@ function buildClusters(schools: School[]): ClusterSummary[] {
 }
 
 function trainBoostedStumpModel(schools: School[]) {
-  const rows = buildTrainingRows(schools);
+  const rows = buildTrainingRows(schools).sort((left, right) =>
+    left.school.id.localeCompare(right.school.id, "en", { numeric: true })
+  );
   const trainingRows = rows.filter((_, index) => index % 5 !== 0);
   const testRows = rows.filter((_, index) => index % 5 === 0);
   const learningRate = 0.18;

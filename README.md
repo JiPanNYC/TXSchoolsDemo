@@ -110,6 +110,8 @@ It demonstrates:
 - K-means-style peer clustering.
 - Lightweight gradient-boosted decision stump regression with feature
   importance.
+- Deterministic 80/20 holdout split based on stable school IDs so model metrics
+  do not change when JSON or SQLite returns rows in a different order.
 
 This is not production XGBoost. It avoids native ML dependencies so the demo is
 easy to deploy. A production version would use the complete public dataset,

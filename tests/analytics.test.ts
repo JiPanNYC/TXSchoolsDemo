@@ -43,4 +43,16 @@ describe("analytics response", () => {
     expect(analytics.model.predictions.length).toBeGreaterThan(0);
     expect(analytics.model.featureImportance[0].importance).toBeGreaterThanOrEqual(0);
   });
+
+  it("keeps model metrics stable when API or database ordering changes", () => {
+    const originalModel = buildAnalyticsResponse(schools).model;
+    const reversedModel = buildAnalyticsResponse([...schools].reverse()).model;
+
+    expect(reversedModel.mae).toBe(originalModel.mae);
+    expect(reversedModel.r2).toBe(originalModel.r2);
+    expect(reversedModel.featureImportance).toEqual(originalModel.featureImportance);
+    expect(reversedModel.predictions.map((prediction) => prediction.id)).toEqual(
+      originalModel.predictions.map((prediction) => prediction.id)
+    );
+  });
 });

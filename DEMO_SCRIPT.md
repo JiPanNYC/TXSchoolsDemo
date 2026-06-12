@@ -65,6 +65,7 @@ Show:
 - Enlarged chart modal
 - Peer clusters
 - Boosted-tree-style model output and feature importance
+- Deterministic holdout metrics that do not depend on database row order
 
 Production caveat:
 
