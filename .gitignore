@@ -29,3 +29,5 @@ Thumbs.db
 .vitest/
 playwright-report/
 test-results/
+server/data/*.sqlite
+server/data/*.sqlite-*

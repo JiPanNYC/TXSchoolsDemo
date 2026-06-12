@@ -10,8 +10,10 @@ Talk track:
 
 This is a mobile-first public reporting interface inspired by TXschools.gov. It
 uses a representative seed generated from public aggregate TXschools.gov JSON
-files, not student-level data. The first screen is optimized for families and
-public users: large search, quick filters, summary cards, and clear report
+files, not student-level data. On startup, the backend imports that seed into a
+lightweight SQLite relational database, so the API reads from tables rather than
+serving a flat JSON file directly. The first screen is optimized for families
+and public users: large search, quick filters, summary cards, and clear report
 version context.
 
 Point out:
@@ -28,9 +30,10 @@ Search for `Austin`, filter to rating `A`, and open a school.
 Talk track:
 
 The API supports search, sorting, filtering, and pagination so the frontend does
-not load a large JSON payload. Desktop users get a paginated table for scanning
-and comparing records. Mobile users get readable school cards instead of a wide
-table.
+not load a large JSON payload. Those queries are backed by SQLite tables for
+schools, districts, report versions, and trend rows. Desktop users get a
+paginated table for scanning and comparing records. Mobile users get readable
+school cards instead of a wide table.
 
 On the detail page, show:
 
@@ -112,9 +115,9 @@ Click:
 Close with:
 
 The architecture separates React frontend, Express REST API, shared TypeScript
-contracts, and a replaceable data layer. The same structure could move from JSON
-fixtures to PostgreSQL, scheduled official-data imports, real CI/CD metadata,
-and production observability.
+contracts, and a SQLite relational data layer. The same schema can move to
+PostgreSQL or Aurora PostgreSQL for multi-instance production hosting, scheduled
+official-data imports, real CI/CD metadata, and production observability.
 
 ## 60-Second CI/CD Explanation
 

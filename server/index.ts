@@ -1,54 +1,36 @@
 import cors from "cors";
 import express from "express";
-import { existsSync, readFileSync } from "node:fs";
-import { join, resolve } from "node:path";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import type {
   CacheStatus,
-  District,
-  ReleaseState,
-  ReleaseValidationCheck,
   ReportSummary,
-  ReportVersion,
-  School
+  ReportVersion
 } from "../shared/types.js";
 import { buildAnalyticsResponse } from "./lib/analytics.js";
-import { applySchoolQuery, parseSchoolQuery } from "./lib/schoolQuery.js";
-
-interface MockData {
-  districts: District[];
-  schools: School[];
-  reportVersions: ReportVersion[];
-}
-
-interface DistrictSummary extends District {
-  schoolCount: number;
-  averageOverallScore: number;
-}
+import {
+  createTxSchoolsDataStore,
+  type CacheMetadata
+} from "./lib/database.js";
+import {
+  formatVersionMonth,
+  nextMonthlyVersion,
+  versionToken
+} from "./lib/reportVersioning.js";
+import { buildValidationChecks } from "./lib/releaseValidation.js";
+import { parseSchoolQuery } from "./lib/schoolQuery.js";
 
 const app = express();
 const port = Number(process.env.PORT ?? 4174);
 const host = process.env.HOST;
 const cacheTtlSeconds = 15 * 60;
+const store = createTxSchoolsDataStore();
+
+let releaseState = store.getReleaseState();
+let cacheMetadata = store.getCacheMetadata();
 
 app.use(cors());
 app.use(express.json());
-
-const data = loadMockData();
-let reportVersions = [...data.reportVersions];
-let releaseState: ReleaseState = {
-  productionVersion: "2026-05",
-  previousVersion: "2026-04",
-  candidateVersion: "2026-06",
-  validationStatus: "not_run",
-  checks: buildValidationChecks(data.schools),
-  lastValidatedAt: null
-};
-
-let databaseRevision = 0;
-let databaseVersion = versionToken(releaseState.productionVersion, databaseRevision);
-let cacheVersion = databaseVersion;
-let cacheLastRefreshedAt = new Date().toISOString();
-let cacheInvalidated = false;
 
 app.get("/api/health", (_request, response) => {
   response.json({ ok: true, service: "txschools-demo-api" });
@@ -56,11 +38,11 @@ app.get("/api/health", (_request, response) => {
 
 app.get("/api/schools", (request, response) => {
   const query = parseSchoolQuery(request.query);
-  response.json(applySchoolQuery(data.schools, query));
+  response.json(store.querySchools(query));
 });
 
 app.get("/api/schools/:id", (request, response) => {
-  const school = data.schools.find((item) => item.id === request.params.id);
+  const school = store.getSchoolById(request.params.id);
 
   if (!school) {
     response.status(404).json({ message: "School record not found." });
@@ -71,20 +53,7 @@ app.get("/api/schools/:id", (request, response) => {
 });
 
 app.get("/api/districts", (_request, response) => {
-  const districts: DistrictSummary[] = data.districts.map((district) => {
-    const schools = data.schools.filter((school) => school.districtId === district.id);
-    const averageOverallScore =
-      schools.reduce((total, school) => total + school.overallScore, 0) /
-      Math.max(1, schools.length);
-
-    return {
-      ...district,
-      schoolCount: schools.length,
-      averageOverallScore: Math.round(averageOverallScore * 10) / 10
-    };
-  });
-
-  response.json(districts);
+  response.json(store.getDistrictSummaries());
 });
 
 app.get("/api/reports/current", (_request, response) => {
@@ -96,16 +65,17 @@ app.get("/api/reports/versions", (_request, response) => {
 });
 
 app.get("/api/analytics/ml", (_request, response) => {
-  response.json(buildAnalyticsResponse(data.schools));
+  response.json(buildAnalyticsResponse(store.getAllSchools()));
 });
 
 app.post("/api/releases/validate", (_request, response) => {
   releaseState = {
     ...releaseState,
     validationStatus: "passed",
-    checks: buildValidationChecks(data.schools),
+    checks: buildValidationChecks(store.getAllSchools()),
     lastValidatedAt: new Date().toISOString()
   };
+  store.saveReleaseState(releaseState);
 
   response.json(releaseState);
 });
@@ -113,11 +83,15 @@ app.post("/api/releases/validate", (_request, response) => {
 app.post("/api/releases/preview", (_request, response) => {
   response.json({
     version: releaseState.candidateVersion,
-    recordCount: data.schools.length,
-    topRatedSchools: [...data.schools]
-      .sort((left, right) => right.overallScore - left.overallScore)
-      .slice(0, 5)
-      .map((school) => ({
+    recordCount: store.countSchools(),
+    topRatedSchools: store
+      .querySchools({
+        sortBy: "overallScore",
+        sortDir: "desc",
+        page: 1,
+        pageSize: 5
+      })
+      .data.map((school) => ({
         id: school.id,
         name: school.name,
         district: school.district,
@@ -144,16 +118,16 @@ app.post("/api/releases/promote", (_request, response) => {
     previousVersion: oldProduction,
     candidateVersion: nextMonthlyVersion(promotedVersion),
     validationStatus: "not_run",
-    checks: buildValidationChecks(data.schools),
+    checks: buildValidationChecks(store.getAllSchools()),
     lastValidatedAt: null
   };
 
   ensureReportVersion(promotedVersion);
   markReportVersionPublished(promotedVersion, publishedAt);
   ensureReportVersion(releaseState.candidateVersion);
-  databaseRevision = 0;
-  databaseVersion = versionToken(releaseState.productionVersion, databaseRevision);
-  cacheInvalidated = true;
+  store.saveReleaseState(releaseState);
+  syncReportVersions();
+  markSourceOfTruthChanged(releaseState.productionVersion);
 
   response.json({
     release: releaseState,
@@ -169,13 +143,12 @@ app.post("/api/releases/rollback", (_request, response) => {
     productionVersion: releaseState.previousVersion,
     previousVersion: rolledBackFrom,
     validationStatus: "not_run",
-    checks: buildValidationChecks(data.schools),
+    checks: buildValidationChecks(store.getAllSchools()),
     lastValidatedAt: null
   };
-
-  databaseRevision = 0;
-  databaseVersion = versionToken(releaseState.productionVersion, databaseRevision);
-  cacheInvalidated = true;
+  store.saveReleaseState(releaseState);
+  syncReportVersions();
+  markSourceOfTruthChanged(releaseState.productionVersion);
 
   response.json({
     release: releaseState,
@@ -189,21 +162,31 @@ app.get("/api/cache/status", (_request, response) => {
 });
 
 app.post("/api/cache/invalidate", (_request, response) => {
-  cacheInvalidated = true;
+  saveCacheMetadata({
+    ...cacheMetadata,
+    cacheInvalidated: true
+  });
   response.json(getCacheStatus());
 });
 
 app.post("/api/cache/refresh", (_request, response) => {
-  cacheVersion = databaseVersion;
-  cacheLastRefreshedAt = new Date().toISOString();
-  cacheInvalidated = false;
+  saveCacheMetadata({
+    ...cacheMetadata,
+    cacheVersion: cacheMetadata.databaseVersion,
+    cacheLastRefreshedAt: new Date().toISOString(),
+    cacheInvalidated: false
+  });
   response.json(getCacheStatus());
 });
 
 app.post("/api/database/simulate-update", (_request, response) => {
-  databaseRevision += 1;
-  databaseVersion = versionToken(releaseState.productionVersion, databaseRevision);
-  cacheInvalidated = true;
+  const nextRevision = cacheMetadata.databaseRevision + 1;
+  saveCacheMetadata({
+    ...cacheMetadata,
+    databaseRevision: nextRevision,
+    databaseVersion: versionToken(releaseState.productionVersion, nextRevision),
+    cacheInvalidated: true
+  });
 
   response.json({
     cache: getCacheStatus(),
@@ -242,8 +225,8 @@ function buildReportSummary(): ReportSummary {
   );
 
   return {
-    totalSchools: data.schools.length,
-    totalDistricts: data.districts.length,
+    totalSchools: store.countSchools(),
+    totalDistricts: store.countDistricts(),
     latestReportMonth:
       production?.label.replace(" Accountability Snapshot", "") ?? "May 2026",
     dataVersion: releaseState.productionVersion,
@@ -251,76 +234,18 @@ function buildReportSummary(): ReportSummary {
   };
 }
 
-function buildValidationChecks(schools: School[]): ReleaseValidationCheck[] {
-  const ids = schools.map((school) => school.id);
-  const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
-  const scoreOutliers = schools.filter(
-    (school) =>
-      school.overallScore < 60 ||
-      school.overallScore > 100 ||
-      school.readingScore < 60 ||
-      school.readingScore > 100 ||
-      school.mathScore < 60 ||
-      school.mathScore > 100
-  );
-  const staleRecords = schools.filter((school) => {
-    const ageMs = Date.now() - new Date(school.lastUpdated).getTime();
-    return ageMs > 60 * 24 * 60 * 60 * 1000;
-  });
-
-  return [
-    {
-      id: "missing-school-records",
-      name: "Missing school records",
-      status: schools.length === 50 ? "pass" : "fail",
-      detail: `${schools.length} of 50 expected school records loaded.`
-    },
-    {
-      id: "duplicate-records",
-      name: "Duplicate records",
-      status: duplicates.length === 0 ? "pass" : "fail",
-      detail:
-        duplicates.length === 0
-          ? "No duplicate school identifiers found."
-          : `${duplicates.length} duplicate school identifiers require review.`
-    },
-    {
-      id: "score-outliers",
-      name: "Score outliers",
-      status: scoreOutliers.length === 0 ? "pass" : "fail",
-      detail:
-        scoreOutliers.length === 0
-          ? "All accountability, reading, and math scores are between 60 and 100."
-          : `${scoreOutliers.length} records contain scores outside the allowed range.`
-    },
-    {
-      id: "ranking-consistency",
-      name: "Ranking consistency",
-      status: "pass",
-      detail:
-        "District ordering can be recomputed from overall score without conflicts."
-    },
-    {
-      id: "timestamp-check",
-      name: "Last updated timestamp check",
-      status: staleRecords.length === 0 ? "pass" : "warning",
-      detail:
-        staleRecords.length === 0
-          ? "Every record has a recent last updated timestamp."
-          : `${staleRecords.length} records are older than the freshness threshold.`
-    }
-  ];
-}
-
 function getCacheStatus(): CacheStatus {
-  const ageMs = Date.now() - new Date(cacheLastRefreshedAt).getTime();
+  const ageMs = Date.now() - new Date(cacheMetadata.cacheLastRefreshedAt).getTime();
   const isExpired = ageMs > cacheTtlSeconds * 1000;
-  const isFresh = !cacheInvalidated && !isExpired && cacheVersion === databaseVersion;
+  const isFresh =
+    !cacheMetadata.cacheInvalidated &&
+    !isExpired &&
+    cacheMetadata.cacheVersion === cacheMetadata.databaseVersion;
 
   return {
-    databaseVersion,
-    cacheVersion,
-    cacheLastRefreshedAt,
+    databaseVersion: cacheMetadata.databaseVersion,
+    cacheVersion: cacheMetadata.cacheVersion,
+    cacheLastRefreshedAt: cacheMetadata.cacheLastRefreshedAt,
     cacheTtlSeconds,
     status: isFresh ? "fresh" : "stale",
     sourceOfTruth: "database"
@@ -328,70 +253,69 @@ function getCacheStatus(): CacheStatus {
 }
 
 function syncReportVersions() {
-  reportVersions = reportVersions.map((version) => ({
+  const versions = store.getReportVersions().map((version) => ({
     ...version,
-    status:
-      version.version === releaseState.productionVersion
-        ? "production"
-        : version.version === releaseState.previousVersion
-          ? "previous"
-          : version.version === releaseState.candidateVersion
-            ? "candidate"
-            : "archived"
+    status: reportStatus(version.version)
   }));
+  store.saveReportVersions(versions);
 
-  return reportVersions;
+  return versions;
+}
+
+function reportStatus(version: string): ReportVersion["status"] {
+  if (version === releaseState.productionVersion) {
+    return "production";
+  }
+
+  if (version === releaseState.previousVersion) {
+    return "previous";
+  }
+
+  if (version === releaseState.candidateVersion) {
+    return "candidate";
+  }
+
+  return "archived";
 }
 
 function ensureReportVersion(version: string) {
-  if (reportVersions.some((item) => item.version === version)) {
+  if (store.getReportVersions().some((item) => item.version === version)) {
     return;
   }
 
-  reportVersions.push({
+  store.ensureReportVersion({
     version,
     label: `${formatVersionMonth(version)} Candidate Release`,
     status: "candidate",
     publishedAt: null,
-    recordCount: data.schools.length
+    recordCount: store.countSchools()
   });
 }
 
 function markReportVersionPublished(version: string, publishedAt: string) {
-  reportVersions = reportVersions.map((item) =>
+  const versions = store.getReportVersions().map((item) =>
     item.version === version
       ? {
           ...item,
           label: `${formatVersionMonth(version)} Accountability Snapshot`,
           publishedAt,
-          recordCount: data.schools.length
+          recordCount: store.countSchools()
         }
       : item
   );
+  store.saveReportVersions(versions);
 }
 
-function nextMonthlyVersion(version: string) {
-  const [yearValue, monthValue] = version.split("-").map(Number);
-  const nextMonth = monthValue === 12 ? 1 : monthValue + 1;
-  const nextYear = monthValue === 12 ? yearValue + 1 : yearValue;
-  return `${nextYear}-${String(nextMonth).padStart(2, "0")}`;
+function markSourceOfTruthChanged(productionVersion: string) {
+  saveCacheMetadata({
+    ...cacheMetadata,
+    databaseRevision: 0,
+    databaseVersion: versionToken(productionVersion, 0),
+    cacheInvalidated: true
+  });
 }
 
-function formatVersionMonth(version: string) {
-  const [year, month] = version.split("-").map(Number);
-  return new Intl.DateTimeFormat("en-US", {
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC"
-  }).format(new Date(Date.UTC(year, month - 1, 1)));
-}
-
-function versionToken(version: string, revision: number) {
-  return `db-${version}.${revision}`;
-}
-
-function loadMockData(): MockData {
-  const dataPath = resolve(process.cwd(), "server", "data", "mockData.json");
-  const raw = readFileSync(dataPath, "utf-8");
-  return JSON.parse(raw) as MockData;
+function saveCacheMetadata(nextMetadata: CacheMetadata) {
+  cacheMetadata = nextMetadata;
+  store.saveCacheMetadata(cacheMetadata);
 }

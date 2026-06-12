@@ -30,7 +30,7 @@ This project demonstrates those ideas in a compact, deployable demo:
 - Tailwind CSS and lucide-react icons
 - Node.js and Express REST API
 - Shared TypeScript contracts between frontend and backend
-- JSON data layer generated from public aggregate TXschools.gov files
+- SQLite relational data layer seeded from public aggregate TXschools.gov JSON
 - Vitest unit tests
 - ESLint and Prettier
 - Render/Railway-ready Node deployment
@@ -182,23 +182,68 @@ Express API
   |
   | query, pagination, sorting, filtering, analytics
   v
-JSON data layer
+SQLite relational data store
   |
-  | release state + cache state
+  | seeded from server/data/mockData.json
   v
-Versioned reports and cache metadata
+School, district, trend, report version, release, and cache tables
 ```
 
 Folder responsibilities:
 
 - `src/` contains the React app, pages, components, API client, and styles.
-- `server/` contains Express routes, school query logic, analytics, release
-  simulation, and cache simulation.
+- `server/` contains Express routes, SQLite data access, school query logic,
+  analytics, release simulation, and cache simulation.
 - `shared/` contains TypeScript contracts used by both client and server.
 - `server/data/mockData.json` contains the local 50-school demo seed.
+- `server/lib/database.ts` creates the SQLite schema, imports seed data, and
+  exposes the runtime data store used by the API.
+- `server/data/txschools.sqlite` is generated locally at runtime and ignored by
+  git. It can be recreated from the seed artifact.
 - `scripts/import-txschools-data.mjs` refreshes the demo seed from public
   aggregate TXschools.gov JSON.
-- `tests/` contains focused unit tests for API query behavior and analytics.
+- `tests/` contains focused unit tests for API query behavior, SQLite seeding,
+  and analytics.
+
+SQLite tables:
+
+- `districts`: district identity, city, and region.
+- `schools`: school profile, accountability rating, scores, public aggregate
+  indicators, report version, and freshness timestamp.
+- `school_trends`: normalized three-year score trend rows by school and year.
+- `report_versions`: production, previous, candidate, and archived report
+  release metadata.
+- `release_state` and `release_checks`: current release workflow state and data
+  quality check results.
+- `cache_metadata`: database/cache version, TTL-related refresh timestamp, and
+  stale/fresh state.
+
+### Relational Data Layer
+
+The application now uses SQLite as a lightweight relational backend. The JSON
+seed remains useful because it is reproducible, easy to review in git, and can
+be regenerated from public aggregate TXschools.gov files. At runtime, however,
+the API reads from SQLite tables instead of serving JSON directly.
+
+Startup lifecycle:
+
+1. Express creates `server/data/txschools.sqlite` if it does not exist.
+2. `server/lib/database.ts` applies the schema and enables foreign keys.
+3. The seed loader computes a checksum of `server/data/mockData.json`.
+4. If the schema version or seed checksum changed, SQLite is rebuilt from the
+   seed.
+5. API requests query SQLite for schools, districts, report versions, release
+   state, and cache metadata.
+
+Why this matters:
+
+- Search, filtering, sorting, and pagination happen in the data layer instead
+  of shipping a large static payload to the browser.
+- The source-of-truth model is explicit: JSON is an import artifact, SQLite is
+  the runtime source for the API.
+- Release state and cache state survive normal server restarts.
+- The schema can move to PostgreSQL/Aurora PostgreSQL later without changing
+  the public React interface.
 
 ## API Design
 
@@ -261,6 +306,13 @@ aggregate fields such as accountability rating, score, enrollment, attendance,
 economic disadvantage percentage, finance indicators, and multi-year score
 history.
 
+At runtime, the Express API treats SQLite as the source of truth. On first boot,
+the app creates `server/data/txschools.sqlite`, builds the relational schema,
+and loads the JSON seed into tables. If the schema version or seed checksum
+changes, the local SQLite file is re-seeded automatically. The JSON file remains
+the reproducible import artifact; the API does not serve records directly from
+the JSON file.
+
 Important data note:
 
 - No student-level data is collected.
@@ -276,6 +328,10 @@ last refreshed timestamp, TTL, and freshness status.
 When the database version changes, a report is promoted, or a report is rolled
 back, the API marks the cache stale. A cache refresh copies the current database
 version into the cache version and updates the refresh timestamp.
+
+Cache and release metadata are stored in SQLite tables so the demo behaves like
+a small production service rather than a page-only mock. The public UI does not
+show cache controls; those operations belong to API/admin workflows.
 
 These controls are intentionally backend/API concerns rather than public UI
 controls. The public site should not expose cache operations to ordinary users.
@@ -338,6 +394,27 @@ Recommended settings:
 
 The included `render.yaml` uses these settings for a Render-style web service.
 
+### EC2 Single-Instance Deployment
+
+The current interview deployment runs as one Node service behind nginx on EC2.
+Nginx listens on port 80 and proxies to Express on localhost.
+
+Recommended service environment:
+
+```text
+PORT=4174
+HOST=127.0.0.1
+```
+
+Operational notes:
+
+- Run `npm ci && npm run build` after pulling changes.
+- Restart the `txschools-demo` systemd service after each deployment.
+- Keep `server/data/txschools.sqlite` on the instance disk; it is ignored by
+  git and can be regenerated from `server/data/mockData.json`.
+- For a multi-instance production deployment, move the same relational schema to
+  PostgreSQL or Aurora PostgreSQL so every instance shares one source of truth.
+
 ### Vercel
 
 Vercel can host the Vite frontend directly. The Express API should be deployed
@@ -365,15 +442,16 @@ See `DEMO_SCRIPT.md` for a more detailed talk track.
 - Loading, error, and empty states.
 - Status badges with high-contrast colors.
 - API pagination to avoid large JSON payloads.
-- Unit tests for query normalization, filtering, sorting, pagination, and
-  analytics output.
+- Unit tests for query normalization, filtering, sorting, pagination, SQLite
+  seeding/querying, and analytics output.
 - ESLint and Prettier included.
 - GitHub Actions workflow runs lint, tests, and production build on push and
   pull requests.
 
 ## Future Improvements
 
-- Replace JSON fixtures with PostgreSQL or SQLite and migration workflow.
+- Add formal SQL migrations and migrate the same relational model to PostgreSQL
+  or Aurora PostgreSQL for multi-instance production hosting.
 - Add role-based access for release promotion.
 - Extend GitHub Actions with release validation artifacts and deployment
   previews.

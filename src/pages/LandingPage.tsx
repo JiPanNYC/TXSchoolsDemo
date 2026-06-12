@@ -195,7 +195,7 @@ export default function LandingPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
       <section className="overflow-hidden rounded-lg border border-sky-100 bg-white shadow-soft">
-        <div className="grid gap-7 p-5 sm:p-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center">
+        <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center">
           <div className="max-w-3xl">
             <p className="label text-public-blue-700">
               Public school information for Texas families
@@ -208,7 +208,7 @@ export default function LandingPage() {
               district-level insights.
             </p>
             <form
-              className="mt-6 rounded-lg border border-slate-200 bg-slate-50 p-2 shadow-sm"
+              className="mt-5 rounded-lg border border-slate-200 bg-slate-50 p-2 shadow-sm"
               onSubmit={(event) => event.preventDefault()}
             >
               <label className="sr-only" htmlFor="home-search">
@@ -240,7 +240,7 @@ export default function LandingPage() {
                 </button>
               </div>
             </form>
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-3 flex flex-wrap gap-2">
               {quickSearches.map((item) => (
                 <button
                   key={item.label}
@@ -254,7 +254,7 @@ export default function LandingPage() {
               ))}
             </div>
           </div>
-          <div className="rounded-lg border border-sky-100 bg-sky-50 p-4">
+          <div className="hidden rounded-lg border border-sky-100 bg-sky-50 p-4 lg:block">
             <div className="rounded-lg bg-white p-4 shadow-sm">
               <p className="label text-public-blue-700">Current release</p>
               <p className="mt-2 text-2xl font-bold text-ink">
@@ -279,7 +279,120 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      {summaryError ? (
+        <div className="mt-5">
+          <ErrorState message={summaryError} onRetry={loadSummary} />
+        </div>
+      ) : null}
+
+      <div id="results" className="mt-4 grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+        <div className="min-w-0 space-y-5">
+          {schoolError ? (
+            <ErrorState message={schoolError} onRetry={retrySchoolSearch} />
+          ) : null}
+          {loadingSchools ? (
+            <LoadingState label="Searching schools" />
+          ) : schools && schools.data.length > 0 ? (
+            <SchoolResults
+              result={schools}
+              sortBy={sortBy}
+              sortDir={sortDir}
+              onSortChange={handleSortChange}
+              onPageChange={setPage}
+            />
+          ) : (
+            <EmptyState />
+          )}
+
+          <section className="surface p-4 sm:p-5 lg:hidden" aria-label="School filters">
+            <details>
+              <summary className="flex cursor-pointer items-center justify-between text-sm font-bold text-ink">
+                <span className="inline-flex items-center gap-2">
+                  <Filter aria-hidden="true" className="h-4 w-4" />
+                  Filters
+                </span>
+                <span className="text-slate-500">Open</span>
+              </summary>
+              <div className="mt-4 grid gap-3">
+                <Filters
+                  rating={rating}
+                  district={district}
+                  city={city}
+                  gradeLevel={gradeLevel}
+                  districts={districts}
+                  cities={cities}
+                  onRating={(value) => resetPagingAnd(setRating, value)}
+                  onDistrict={(value) => resetPagingAnd(setDistrict, value)}
+                  onCity={(value) => resetPagingAnd(setCity, value)}
+                  onGradeLevel={(value) => resetPagingAnd(setGradeLevel, value)}
+                />
+              </div>
+            </details>
+          </section>
+        </div>
+
+        <aside className="space-y-5">
+          <section className="surface hidden p-5 lg:block" aria-label="School filters">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="label">Refine Search</p>
+                <h2 className="mt-1 text-lg font-bold text-ink">
+                  Filter school results
+                </h2>
+              </div>
+              <p className="whitespace-nowrap text-sm font-semibold text-slate-500">
+                {schools?.pagination.total ?? 0} records
+              </p>
+            </div>
+            <div className="mt-4 grid gap-3">
+              <Filters
+                rating={rating}
+                district={district}
+                city={city}
+                gradeLevel={gradeLevel}
+                districts={districts}
+                cities={cities}
+                onRating={(value) => resetPagingAnd(setRating, value)}
+                onDistrict={(value) => resetPagingAnd(setDistrict, value)}
+                onCity={(value) => resetPagingAnd(setCity, value)}
+                onGradeLevel={(value) => resetPagingAnd(setGradeLevel, value)}
+              />
+            </div>
+          </section>
+
+          <section className="surface p-5" aria-labelledby="district-heading">
+            <p className="label">District Snapshot</p>
+            <h2 id="district-heading" className="mt-1 text-lg font-bold text-ink">
+              Highest Average Scores
+            </h2>
+            <div className="mt-4 space-y-3">
+              {[...districts]
+                .sort(
+                  (left, right) => right.averageOverallScore - left.averageOverallScore
+                )
+                .slice(0, 5)
+                .map((item) => (
+                  <div
+                    key={item.id}
+                    className="flex items-center justify-between gap-3 rounded-md bg-slate-50 px-3 py-3"
+                  >
+                    <div>
+                      <p className="font-semibold text-ink">{item.name}</p>
+                      <p className="text-sm text-slate-600">
+                        {item.schoolCount} schools in {item.city}
+                      </p>
+                    </div>
+                    <span className="text-lg font-bold text-public-blue-800">
+                      {item.averageOverallScore}
+                    </span>
+                  </div>
+                ))}
+            </div>
+          </section>
+        </aside>
+      </div>
+
+      <section className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {loadingSummary ? (
           <>
             <SkeletonCard />
@@ -317,121 +430,11 @@ export default function LandingPage() {
         ) : null}
       </section>
 
-      {summaryError ? (
-        <div className="mt-5">
-          <ErrorState message={summaryError} onRetry={loadSummary} />
-        </div>
-      ) : null}
-
       <section className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {actionTiles.map((item) => (
           <ActionTile key={item.title} {...item} />
         ))}
       </section>
-
-      <div id="results" className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
-        <div className="space-y-5">
-          <section className="surface p-4 sm:p-5" aria-label="School filters">
-            <details className="lg:hidden">
-              <summary className="flex cursor-pointer items-center justify-between text-sm font-bold text-ink">
-                <span className="inline-flex items-center gap-2">
-                  <Filter aria-hidden="true" className="h-4 w-4" />
-                  Filters
-                </span>
-                <span className="text-slate-500">Open</span>
-              </summary>
-              <div className="mt-4 grid gap-3">
-                <Filters
-                  rating={rating}
-                  district={district}
-                  city={city}
-                  gradeLevel={gradeLevel}
-                  districts={districts}
-                  cities={cities}
-                  onRating={(value) => resetPagingAnd(setRating, value)}
-                  onDistrict={(value) => resetPagingAnd(setDistrict, value)}
-                  onCity={(value) => resetPagingAnd(setCity, value)}
-                  onGradeLevel={(value) => resetPagingAnd(setGradeLevel, value)}
-                />
-              </div>
-            </details>
-            <div className="mb-4 hidden items-end justify-between gap-4 lg:flex">
-              <div>
-                <p className="label">Refine Search</p>
-                <h2 className="mt-1 text-lg font-bold text-ink">
-                  Filter school results
-                </h2>
-              </div>
-              <p className="text-sm font-semibold text-slate-500">
-                {schools?.pagination.total ?? 0} matching records
-              </p>
-            </div>
-            <div className="hidden grid-cols-4 gap-3 lg:grid">
-              <Filters
-                rating={rating}
-                district={district}
-                city={city}
-                gradeLevel={gradeLevel}
-                districts={districts}
-                cities={cities}
-                onRating={(value) => resetPagingAnd(setRating, value)}
-                onDistrict={(value) => resetPagingAnd(setDistrict, value)}
-                onCity={(value) => resetPagingAnd(setCity, value)}
-                onGradeLevel={(value) => resetPagingAnd(setGradeLevel, value)}
-              />
-            </div>
-          </section>
-
-          {schoolError ? (
-            <ErrorState message={schoolError} onRetry={retrySchoolSearch} />
-          ) : null}
-          {loadingSchools ? (
-            <LoadingState label="Searching schools" />
-          ) : schools && schools.data.length > 0 ? (
-            <SchoolResults
-              result={schools}
-              sortBy={sortBy}
-              sortDir={sortDir}
-              onSortChange={handleSortChange}
-              onPageChange={setPage}
-            />
-          ) : (
-            <EmptyState />
-          )}
-        </div>
-
-        <aside className="space-y-5">
-          <section className="surface p-5" aria-labelledby="district-heading">
-            <p className="label">District Snapshot</p>
-            <h2 id="district-heading" className="mt-1 text-lg font-bold text-ink">
-              Highest Average Scores
-            </h2>
-            <div className="mt-4 space-y-3">
-              {[...districts]
-                .sort(
-                  (left, right) => right.averageOverallScore - left.averageOverallScore
-                )
-                .slice(0, 5)
-                .map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex items-center justify-between gap-3 rounded-md bg-slate-50 px-3 py-3"
-                  >
-                    <div>
-                      <p className="font-semibold text-ink">{item.name}</p>
-                      <p className="text-sm text-slate-600">
-                        {item.schoolCount} schools in {item.city}
-                      </p>
-                    </div>
-                    <span className="text-lg font-bold text-public-blue-800">
-                      {item.averageOverallScore}
-                    </span>
-                  </div>
-                ))}
-            </div>
-          </section>
-        </aside>
-      </div>
     </div>
   );
 }
