@@ -114,13 +114,12 @@ interface ReleaseCheckRow {
 }
 
 const schemaVersion = "2026-06-sqlite-v1";
-const defaultDatabasePath = resolve(
-  process.cwd(),
-  "server",
-  "data",
-  "txschools.sqlite"
-);
-const defaultSeedDataPath = resolve(process.cwd(), "server", "data", "mockData.json");
+const defaultDatabasePath = process.env.DATABASE_PATH
+  ? resolve(process.env.DATABASE_PATH)
+  : resolve(process.cwd(), "server", "data", "txschools.sqlite");
+const defaultSeedDataPath = process.env.SEED_DATA_PATH
+  ? resolve(process.env.SEED_DATA_PATH)
+  : resolve(process.cwd(), "server", "data", "mockData.json");
 
 const sortColumnByField: Record<
   NonNullable<SchoolQueryOptions["sortBy"]>,

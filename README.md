@@ -33,6 +33,7 @@ This project demonstrates those ideas in a compact, deployable demo:
 - SQLite relational data layer seeded from public aggregate TXschools.gov JSON
 - Vitest unit tests
 - ESLint and Prettier
+- Docker and Docker Compose for container-ready packaging
 - Render/Railway-ready Node deployment
 
 ## Run Locally
@@ -63,6 +64,26 @@ Quality checks:
 npm run lint
 npm run test
 npm run build
+```
+
+Containerized local run:
+
+```bash
+docker compose up --build
+```
+
+Docker URLs:
+
+- Frontend: `http://localhost:8080`
+- Backend API: proxied through the frontend container at
+  `http://localhost:8080/api/health`
+- The backend container stores SQLite at `/app/data/txschools.sqlite` using a
+  named Docker volume.
+
+Stop containers:
+
+```bash
+docker compose down
 ```
 
 ## Product Pages
@@ -191,6 +212,24 @@ SQLite relational data store
 School, district, trend, report version, release, and cache tables
 ```
 
+Containerized runtime:
+
+```text
+Browser
+  |
+  v
+Frontend container
+  nginx serves Vite static assets and proxies /api
+  |
+  v
+Backend container
+  Node.js + Express REST API
+  |
+  v
+SQLite volume
+  /app/data/txschools.sqlite
+```
+
 Folder responsibilities:
 
 - `src/` contains the React app, pages, components, API client, and styles.
@@ -204,6 +243,9 @@ Folder responsibilities:
   git. It can be recreated from the seed artifact.
 - `scripts/import-txschools-data.mjs` refreshes the demo seed from public
   aggregate TXschools.gov JSON.
+- `Dockerfile.frontend`, `Dockerfile.backend`, `docker-compose.yml`, and
+  `docker/frontend.nginx.conf` package the frontend and backend as separate
+  containers for repeatable local CI/CD-style runs.
 - `tests/` contains focused unit tests for API query behavior, SQLite seeding,
   and analytics.
 
@@ -369,6 +411,28 @@ automation and controlled human approval because incorrect data or broken
 release behavior can affect families, campuses, districts, and policymakers.
 
 ## Deployment
+
+### Docker Compose
+
+The repo includes separate frontend and backend container definitions to show
+how the demo can be packaged consistently for CI/CD.
+
+```bash
+docker compose up --build
+```
+
+This starts:
+
+- `frontend`: nginx serving the Vite production build on `localhost:8080`
+- `backend`: Node/Express API on the internal Compose network
+- `txschools-sqlite`: named volume for the runtime SQLite database
+
+The frontend container proxies `/api` requests to the backend container. It also
+sets long-lived cache headers for hashed `/assets/*` files and blocks common
+scanner paths such as `.env`, `.git`, `cgi-bin`, `wp-admin`, and `phpunit`.
+
+This Docker setup is intentionally lightweight. It demonstrates repeatable
+packaging for CI/CD and local review without introducing Kubernetes complexity.
 
 ### Render or Railway
 

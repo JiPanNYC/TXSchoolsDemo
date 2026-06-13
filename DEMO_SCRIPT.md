@@ -118,7 +118,9 @@ Close with:
 The architecture separates React frontend, Express REST API, shared TypeScript
 contracts, and a SQLite relational data layer. The same schema can move to
 PostgreSQL or Aurora PostgreSQL for multi-instance production hosting, scheduled
-official-data imports, real CI/CD metadata, and production observability.
+official-data imports, real CI/CD metadata, and production observability. I also
+added Dockerfiles and Docker Compose so the frontend and backend can be packaged
+consistently for CI/CD-style local runs without adding Kubernetes complexity.
 
 ## 60-Second CI/CD Explanation
 
@@ -133,6 +135,13 @@ failures before users see them. Business Approval keeps a human sign-off step
 before publishing. Production deployment is followed by health checks, and the
 rollback package is kept ready so the team can recover quickly from an
 unexpected production issue.
+
+Container talking point:
+
+The repository is also container-ready: nginx serves the React build in a
+frontend container, Express runs in a backend container, and Docker Compose wires
+them together with a SQLite volume. This shows repeatable packaging for CI/CD
+without overengineering the demo with Kubernetes.
 
 Optional demo:
 
